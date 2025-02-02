@@ -98,7 +98,13 @@ namespace Passion_Project.Services
         public async Task<ServiceResponse> AddTimeline(TimelineDto timelineDto)
         {
             ServiceResponse serviceResponse = new();
-
+            // Validating data
+            if (string.IsNullOrWhiteSpace(timelineDto.timeline_name))
+            {
+                serviceResponse.Status = ServiceResponse.ServiceStatus.Error;
+                serviceResponse.Messages.Add("Timeline name are required.");
+                return serviceResponse;
+            }
             // Create new instance of timeline
             Timeline timeline = new Timeline()
             {

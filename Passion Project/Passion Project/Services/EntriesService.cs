@@ -95,6 +95,13 @@ namespace Passion_Project.Services
         public async Task<ServiceResponse> AddEntry(EntriesDto entryDto)
         {
             ServiceResponse serviceResponse = new();
+            // Validate required fields
+            if (string.IsNullOrWhiteSpace(entryDto.entries_name) || entryDto.timeline_Id <= 0)
+            {
+                serviceResponse.Status = ServiceResponse.ServiceStatus.Error;
+                serviceResponse.Messages.Add("Entry name and a valid timeline ID are required.");
+                return serviceResponse;
+            }
             // Creates new instance of entry
             Entries entry = new Entries()
             {

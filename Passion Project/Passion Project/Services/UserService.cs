@@ -109,6 +109,15 @@ namespace Passion_Project.Services
 
             ServiceResponse serviceResponse = new();
 
+            // Check for empty required fields
+            if (string.IsNullOrWhiteSpace(userdto.first_name) ||
+                string.IsNullOrWhiteSpace(userdto.last_name) ||
+                string.IsNullOrWhiteSpace(userdto.email))
+            {
+                serviceResponse.Status = ServiceResponse.ServiceStatus.Error;
+                serviceResponse.Messages.Add("Please provide valid first name, last name, and email.");
+                return serviceResponse;
+            }
 
             // Create instance of user
             Users user = new Users()
