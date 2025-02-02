@@ -1,0 +1,62 @@
+﻿@model OnlineStore.Models.ViewModels.ProductDetails
+
+
+<a href="/ProductPage/Delete/@Model.Product.ProductId">Delete</a>
+<a href="/ProductPage/Edit/@Model.Product.ProductId">Edit</a>
+<a href="/ProductPage/List">Back</a>
+<div class="row">
+    <div class="col-md-6">
+        <div>
+            <label>Name</label>
+            <div>@Model.Product.ProductName</div>
+        </div>
+        <div>
+            <label>SKU</label>
+            <div>@Model.Product.ProductSKU</div>
+        </div>
+        
+        <div>
+            <label>Price</label>
+            <div>@Model.Product.ProductPrice</div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div>
+            <label>Categories:</label>
+            <ul>
+                @foreach(var CategoryDto in Model.ProductCategories)
+                {
+                    <li style="margin-bottom:10px">
+                        <a href="/CategoryPage/Details/@CategoryDto.CategoryId">@CategoryDto.CategoryName</a>
+                        <form method="POST" action="/ProductPage/UnlinkFromCategory" style="display:inline">
+                            <input style="display:none" name="productId" value="@Model.Product.ProductId" />
+                            <input style="display:none" name="categoryId" value="@CategoryDto.CategoryId" />
+                            <input type="submit" value="Remove" />
+                        </form>
+                    </li>
+                }
+            </ul>
+            <form method="POST" action="/ProductPage/LinkToCategory">
+                <input style="display:none" name="productId" value="@Model.Product.ProductId" />
+                <select name="categoryId">
+                    @foreach(var CategoryDto in Model.AllCategories)
+                    {
+                       <option value="@CategoryDto.CategoryId">@CategoryDto.CategoryName</option> 
+                    }
+                </select>
+                <input type="submit" value="Add" />
+            </form>
+        </div>
+        <div>
+            <h3>Ordered:</h3>
+            <div>
+                @foreach(var OrderItemDto in Model.ProductOrderedItems)
+                {
+                    
+                    <div>(@OrderItemDto.CustomerName @OrderItemDto.OrderDate) @OrderItemDto.OrderItemQty &times; @OrderItemDto.OrderItemUnitPrice = @OrderItemDto.OrderItemSubtotal</div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
