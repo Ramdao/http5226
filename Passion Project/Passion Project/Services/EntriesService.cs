@@ -62,6 +62,14 @@ namespace Passion_Project.Services
         public async Task<ServiceResponse> UpdateEntry(int id, EntriesDto entryDto)
         {
             ServiceResponse serviceResponse = new();
+            //Checking required fields
+            if (string.IsNullOrWhiteSpace(entryDto.entries_name) || entryDto.timeline_Id <= 0)
+            {
+                serviceResponse.Status = ServiceResponse.ServiceStatus.Error;
+                serviceResponse.Messages.Add("Entry name and a valid timeline ID are required.");
+                return serviceResponse;
+            }
+            //Cheking if Id exits
             var entry = await _context.entries.FindAsync(id);
             if (entry == null)
             {

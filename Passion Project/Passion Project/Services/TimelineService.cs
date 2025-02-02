@@ -63,6 +63,13 @@ namespace Passion_Project.Services
         public async Task<ServiceResponse> UpdateTimeline(int id, TimelineDto timelineDto)
         {
             ServiceResponse serviceResponse = new();
+            // Checking required fields
+            if (string.IsNullOrWhiteSpace(timelineDto.timeline_name))
+            {
+                serviceResponse.Status = ServiceResponse.ServiceStatus.Error;
+                serviceResponse.Messages.Add("Timeline name are required.");
+                return serviceResponse;
+            }
 
             // Find existing timeline entry in the database
             var timeline = await _context.timelines.FindAsync(id);
