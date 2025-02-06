@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\radin\\OneDrive\\Desktop\\Passion Project - Copy\\Passion Project\\Passion Project.csproj": {}
+    "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\Passion Project - Controller\\Passion Project\\Passion Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\radin\\OneDrive\\Desktop\\Passion Project - Copy\\Passion Project\\Passion Project.csproj": {
+    "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\Passion Project - Controller\\Passion Project\\Passion Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\radin\\OneDrive\\Desktop\\Passion Project - Copy\\Passion Project\\Passion Project.csproj",
+        "projectUniqueName": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\Passion Project - Controller\\Passion Project\\Passion Project.csproj",
         "projectName": "Passion Project",
-        "projectPath": "C:\\Users\\radin\\OneDrive\\Desktop\\Passion Project - Copy\\Passion Project\\Passion Project.csproj",
+        "projectPath": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\Passion Project - Controller\\Passion Project\\Passion Project.csproj",
         "packagesPath": "C:\\Users\\radin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\radin\\OneDrive\\Desktop\\Passion Project - Copy\\Passion Project\\obj\\",
+        "outputPath": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\Passion Project - Controller\\Passion Project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\radin\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Passion Project")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3b824224afb0483eee79e82f91907673ae16e16e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Passion Project")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Passion Project")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

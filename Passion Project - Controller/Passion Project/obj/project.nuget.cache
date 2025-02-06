@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sQdcgaU3D4I=",
+  "dgSpecHash": "J1z72pn7MJ0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\radin\\OneDrive\\Desktop\\Passion Project - Copy\\Passion Project\\Passion Project.csproj",
+  "projectFilePath": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\Passion Project - Controller\\Passion Project\\Passion Project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\radin\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\radin\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

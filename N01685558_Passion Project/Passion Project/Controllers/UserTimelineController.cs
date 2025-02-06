@@ -1,15 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Passion_Project.Data;
-using Passion_Project.Models;
-using Microsoft.EntityFrameworkCore;
-using Passion_Project.Data.Migrations;
 using Passion_Project.Interfaces;
-using Azure;
-
-
-
-using Microsoft.AspNetCore.Mvc;
-using Passion_Project.Services;
+using Passion_Project.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Passion_Project.Controllers
 {
@@ -17,30 +10,13 @@ namespace Passion_Project.Controllers
     [ApiController]
     public class UserTimelineController : Controller
     {
-
         private readonly IUserTimeline _context;
 
         public UserTimelineController(IUserTimeline context)
         {
-
             _context = context;
         }
-        /// <summary>
-        /// Return a list of User Timelines.
-        /// </summary>
-        /// <returns>
-        /// 200 OK
-        /// [{UserTimelineDto}, {UserTimelineDto}, ...]
-        /// </returns>
-        /// <example>
-        /// GET : api/UserTimeline/ListUserTimeline -> [{ {UserTimelineDto}, {UserTimelineDto}, ... }]
-        /// </example>
-        [HttpGet(template: "ListUserTimeline")]
-        public async Task<ActionResult<IEnumerable<UserTimelineDto>>> GetUserTimeline()
-        {
-            IEnumerable<UserTimelineDto> UserTimeline = await _context.List();
-            return Ok(UserTimeline);
-        }
+
         /// <summary>
         /// Links a user to a timeline.
         /// </summary>
@@ -52,10 +28,6 @@ namespace Passion_Project.Controllers
         /// 409 Conflict - If the user is already linked to the timeline.
         /// 500 Internal Server Error - If an error occurs while processing.
         /// </returns>
-        /// <example>
-        /// POST : api/UserTimeline/LinkUserToTimeline?userId=1&timelineId=2 -> 204 No Content
-        /// </example>
-
         [HttpPost("LinkUserToTimeline")]
         public async Task<ActionResult> LinkUserToTimeline(int userId, int timelineId)
         {
@@ -69,13 +41,10 @@ namespace Passion_Project.Controllers
             {
                 return Conflict(response.Messages);
             }
-            else if (response.Status == ServiceResponse.ServiceStatus.Error)
-            {
-                return StatusCode(500, response.Messages);
-            }
 
             return NoContent();
         }
+
         /// <summary>
         /// Unlinks a user from a timeline.
         /// </summary>
@@ -86,10 +55,6 @@ namespace Passion_Project.Controllers
         /// 404 Not Found - If the user is not linked to the specified timeline.
         /// 500 Internal Server Error - If an error occurs while processing.
         /// </returns>
-        /// <example>
-        /// DELETE : api/UserTimeline/UnlinkUserFromTimeline?userId=1&timelineId=2 -> 204 No Content
-        /// </example>
-
         [HttpDelete("UnlinkUserFromTimeline")]
         public async Task<ActionResult> UnlinkUserFromTimeline(int userId, int timelineId)
         {
@@ -107,7 +72,59 @@ namespace Passion_Project.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Gets all timeline IDs linked to a specific user.
+        /// </summary>
+        /// <param name="userId">The ID of the user.</param>
+        /// <returns>
+        /// 200 OK - A list of timeline IDs linked to the user.
+        /// 404 Not Found - If the user does not exist.
+        /// 500 Internal Server Error - If an error occurs while processing.
+        /// </returns>
+        /// <example>
+        /// GET: api/UserTimeline/GetTimelinesForUser/1 -> [1, 2, 3]
+        /// </example>
+        [HttpGet("GetTimelinesForUser/{userId}")]
+        public async Task<ActionResult<List<int>>> GetTimelinesForUser(int userId)
+        {
+            ServiceResponse<List<int>> response = await _context.GetTimelinesForUser(userId);
 
+            if (response.Status == ServiceResponse.ServiceStatus.NotFound)
+            {
+                return NotFound(response.Messages);
+            }
+            else if (response.Status == ServiceResponse.ServiceStatus.Error)
+            {
+                return StatusCode(500, response.Messages);
+            }
+
+            return Ok(response.Data);
+        }
+
+        /// <summary>
+        /// Retrieves all user IDs linked to a specific timeline.
+        /// </summary>
+        /// <param name="timelineId">The ID of the timeline.</param>
+        /// <returns>
+        /// 200 OK - A list of user IDs linked to the timeline.
+        /// 404 Not Found - If the timeline does not exist.
+        /// 500 Internal Server Error - If an error occurs while processing.
+        /// </returns>
+        /// <example>
+        /// GET : api/UserTimeline/GetUsersForTimeline/2 -> [3, 6, 8]
+        /// </example>
+        [HttpGet("GetUsersForTimeline/{timelineId}")]
+        public async Task<ActionResult<List<int>>> GetUsersForTimeline(int timelineId)
+        {
+            ServiceResponse<List<int>> response = await _context.GetUsersForTimeline(timelineId);
+
+            if (response.Status == ServiceResponse.ServiceStatus.NotFound)
+                return NotFound(response.Messages);
+            else if (response.Status == ServiceResponse.ServiceStatus.Error)
+                return StatusCode(500, response.Messages);
+
+            return Ok(response.Data);
+        }
 
     }
 }
