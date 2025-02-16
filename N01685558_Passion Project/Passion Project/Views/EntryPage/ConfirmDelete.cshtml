@@ -1,0 +1,48 @@
+﻿@model Passion_Project.Models.EntriesDto
+
+@{
+    ViewData["Title"] = "ConfirmDelete";
+}
+
+<h1>ConfirmDelete</h1>
+
+<h3>Are you sure you want to delete this entry?</h3>
+<div>
+    <h4>Entry</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.entries_name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.entries_name)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.location)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.location)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.images)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.images)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete" asp-route-id="@Model.entries_Id">
+        <input type="hidden" asp-for="entries_Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="List">Back to List</a>
+    </form>
+</div>

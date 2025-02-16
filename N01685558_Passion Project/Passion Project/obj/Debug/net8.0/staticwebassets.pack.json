@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Passion Project.bundle.scp.css",
-      "PackagePath": "staticwebassets\\Passion Project.bundle.scp.css"
+      "PackagePath": "staticwebassets\\Passion Project.i9l27wknb8.bundle.scp.css"
     },
     {
       "Id": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\wwwroot\\css\\site.css",
@@ -243,6 +243,10 @@
     {
       "Id": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Passion Project.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Passion Project.Microsoft.AspNetCore.StaticWebAssets.props",

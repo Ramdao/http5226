@@ -1,0 +1,78 @@
+﻿@model Passion_Project.Models.TimelineDetails
+
+@{
+    ViewData["Title"] = "Timeline Details";
+}
+
+<h1>Timeline Details</h1>
+
+<div>
+    <h4>Timeline</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Timeline.timeline_name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Timeline.timeline_name)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Timeline.date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Timeline.date)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Timeline.description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Timeline.description)
+        </dd>
+    </dl>
+
+    <!-- Display associated entries here -->
+    <h4>Associated Entries</h4>
+    <hr />
+    @* @if (Model.Entries != null && Model.Entries.Any()) *@
+    @* { *@
+    @*     <ul> *@
+    @*         @foreach (var entry in Model.Entries) *@
+    @*         { *@
+    @*             <li> *@
+    @*                 <strong>@entry.entries_name</strong><br /> *@
+    @*                 @entry.description<br /> *@
+    @*                 Location: @entry.location<br /> *@
+    @*                 Images: @entry.images *@
+    @*             </li> *@
+    @*         } *@
+    @*     </ul> *@
+    @* } *@
+    @* else *@
+    @* { *@
+    @*     <p>No associated entries.</p> *@
+    @* } *@
+
+    <!-- Display associated users here -->
+    <h4>Associated Users</h4>
+    <hr />
+    @if (Model.UserTimeline != null && Model.UserTimeline.Any())
+    {
+        <ul>
+            @foreach (var user in Model.UserTimeline)
+            {
+                <li>@user.first_name @user.last_name</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No associated users.</p>
+    }
+</div>
+
+<div>
+    <a asp-controller="TimelinePage" asp-action="Edit" asp-route-id="@Model.Timeline.timeline_Id">Edit</a> |
+    <a asp-action="List">Back to List</a>
+</div>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Passion_Project.Models.UserDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="New">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.first_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.last_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.friend_list)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.first_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.last_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.friend_list)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.user_Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.user_Id">Details</a> |
+                    <a asp-action="ConfirmDelete" asp-route-id="@item.user_Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,64 @@
+﻿@model Passion_Project.Models.UserDetails
+
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<h1>User Details</h1>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.first_name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.first_name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.last_name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.last_name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.User.friend_list)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.friend_list)
+        </dd>
+
+        <!-- Display timeline names here -->
+        <dt class="col-sm-2">Timelines</dt>
+        <dd class="col-sm-10">
+            @if (Model.UserTimeline != null && Model.UserTimeline.Any())
+            {
+                <ul>
+                    @foreach (var userTimelineDto in Model.UserTimeline)
+                    {
+                        <li>
+                            @userTimelineDto.timeline_name
+                            <a asp-controller="TimelinePage" asp-action="Edit" asp-route-id="@userTimelineDto.timeline_Id">Edit</a>
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>No timelines available.</p>
+            }
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.User.user_Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

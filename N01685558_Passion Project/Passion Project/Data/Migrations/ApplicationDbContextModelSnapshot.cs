@@ -329,6 +329,10 @@ namespace Passion_Project.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("user_Id");
 
                     b.ToTable("users");

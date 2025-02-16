@@ -1,0 +1,68 @@
+﻿@model Passion_Project.Models.EntryDetails
+
+@{
+    ViewData["Title"] = "Entry Details";
+}
+
+<h1>Entry Details</h1>
+
+<div>
+    <h4>Entry</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Entry.entries_name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Entry.entries_name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Entry.description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Entry.description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Entry.location)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Entry.location)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Entry.images)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Entry.images)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <h4>Associated Timeline</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.timeline.timeline_name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.timeline.timeline_name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.timeline.date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.timeline.date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.timeline.description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.timeline.description)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-controller="EntryPage" asp-action="Edit" asp-route-id="@Model.Entry.entries_Id">Edit</a> |
+    <a asp-action="List">Back to List</a>
+</div>

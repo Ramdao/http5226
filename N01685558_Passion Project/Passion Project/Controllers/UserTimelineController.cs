@@ -85,20 +85,16 @@ namespace Passion_Project.Controllers
         /// GET: api/UserTimeline/GetTimelinesForUser/1 -> [1, 2, 3]
         /// </example>
         [HttpGet("GetTimelinesForUser/{userId}")]
-        public async Task<ActionResult<List<int>>> GetTimelinesForUser(int userId)
+        public async Task<ActionResult<IEnumerable<UserTimelineDto>>> GetTimelinesForUser(int userId)
         {
-            ServiceResponse<List<int>> response = await _context.GetTimelinesForUser(userId);
+            IEnumerable<UserTimelineDto> response = await _context.GetTimelinesForUser(userId);
 
-            if (response.Status == ServiceResponse.ServiceStatus.NotFound)
+            if (!response.Any())
             {
-                return NotFound(response.Messages);
-            }
-            else if (response.Status == ServiceResponse.ServiceStatus.Error)
-            {
-                return StatusCode(500, response.Messages);
+                return NotFound("User not found or no timelines associated.");
             }
 
-            return Ok(response.Data);
+            return Ok(response);
         }
 
         /// <summary>
@@ -114,16 +110,16 @@ namespace Passion_Project.Controllers
         /// GET : api/UserTimeline/GetUsersForTimeline/2 -> [3, 6, 8]
         /// </example>
         [HttpGet("GetUsersForTimeline/{timelineId}")]
-        public async Task<ActionResult<List<int>>> GetUsersForTimeline(int timelineId)
+        public async Task<ActionResult<IEnumerable<UserTimelineDto>>> GetUsersForTimeline(int timelineId)
         {
-            ServiceResponse<List<int>> response = await _context.GetUsersForTimeline(timelineId);
+            IEnumerable<UserTimelineDto> response = await _context.GetUsersForTimeline(timelineId);
 
-            if (response.Status == ServiceResponse.ServiceStatus.NotFound)
-                return NotFound(response.Messages);
-            else if (response.Status == ServiceResponse.ServiceStatus.Error)
-                return StatusCode(500, response.Messages);
+            if (!response.Any())
+            {
+                return NotFound("Timeline not found or no users associated.");
+            }
 
-            return Ok(response.Data);
+            return Ok(response);
         }
 
     }

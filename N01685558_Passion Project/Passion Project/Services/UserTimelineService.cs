@@ -18,74 +18,76 @@ namespace Passion_Project.Services
             _context = context;
         }
 
-        public async Task<ServiceResponse<List<int>>> GetTimelinesForUser(int userId)
+        public async Task<IEnumerable<UserTimelineDto>> GetTimelinesForUser(int userId)
         {
-            ServiceResponse<List<int>> serviceResponse = new();
+            List<UserTimelineDto> result = new();
 
             // Check if the user exists
             bool userExists = await _context.users.AnyAsync(u => u.user_Id == userId);
             if (!userExists)
             {
-                serviceResponse.Status = ServiceResponse.ServiceStatus.NotFound;
-                serviceResponse.Messages.Add("User not found.");
-                return serviceResponse;
+                return result; // Return empty list if user not found
             }
 
             try
             {
-                // Retrieve all timeline IDs associated with the user
-                List<int> timelineIds = await _context.UsersTimeline
+                result = await _context.UsersTimeline
                     .Where(ut => ut.user_id == userId)
-                    .Select(ut => ut.timeline_Id)
+                    .Join(_context.timelines,
+                          ut => ut.timeline_Id,
+                          t => t.timeline_Id,
+                          (ut, t) => new UserTimelineDto
+                          {
+                              usertime_Id = ut.usertime_Id,
+                              timeline_Id = t.timeline_Id,
+                              user_id = ut.user_id,
+                              timeline_name = t.timeline_name
+                          })
                     .ToListAsync();
-
-                serviceResponse.Status = ServiceResponse.ServiceStatus.Success;
-                serviceResponse.Data = timelineIds;
             }
             catch (Exception ex)
             {
-                serviceResponse.Status = ServiceResponse.ServiceStatus.Error;
-                serviceResponse.Messages.Add("An error occurred while retrieving timelines.");
-                serviceResponse.Messages.Add(ex.Message);
+                // Log the exception if needed
             }
 
-            return serviceResponse;
+            return result;
         }
 
-        public async Task<ServiceResponse<List<int>>> GetUsersForTimeline(int timelineId)
+        public async Task<IEnumerable<UserTimelineDto>> GetUsersForTimeline(int timelineId)
         {
-            ServiceResponse<List<int>> serviceResponse = new();
+            List<UserTimelineDto> result = new();
 
             // Check if the timeline exists
             bool timelineExists = await _context.timelines.AnyAsync(t => t.timeline_Id == timelineId);
             if (!timelineExists)
             {
-                serviceResponse.Status = ServiceResponse.ServiceStatus.NotFound;
-                serviceResponse.Messages.Add("Timeline not found.");
-                return serviceResponse;
+                return result; // Return empty list if timeline not found
             }
 
             try
             {
-                // Retrieve all user IDs linked to the given timeline ID
-                List<int> userIds = await _context.UsersTimeline
+                result = await _context.UsersTimeline
                     .Where(ut => ut.timeline_Id == timelineId)
-                    .Select(ut => ut.user_id)
+                    .Join(_context.users,
+                          ut => ut.user_id,
+                          u => u.user_Id,
+                          (ut, u) => new UserTimelineDto
+                          {
+                              usertime_Id = ut.usertime_Id,
+                              timeline_Id = ut.timeline_Id,
+                              user_id = u.user_Id,
+                              first_name = u.first_name, 
+                              last_name = u.last_name   
+                          })
                     .ToListAsync();
-
-                serviceResponse.Status = ServiceResponse.ServiceStatus.Success;
-                serviceResponse.Data = userIds;
             }
             catch (Exception ex)
             {
-                serviceResponse.Status = ServiceResponse.ServiceStatus.Error;
-                serviceResponse.Messages.Add("An error occurred while retrieving users.");
-                serviceResponse.Messages.Add(ex.Message);
+                // Log the exception if needed
             }
 
-            return serviceResponse;
+            return result;
         }
-
 
         public async Task<ServiceResponse> LinkUserToTimeline(int userId, int timelineId)
         {

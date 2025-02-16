@@ -32,6 +32,7 @@ namespace Passion_Project.Services
                     last_name = user.last_name,
                     email = user.email,
                     friend_list = user.friend_list,
+                    password= user.password
                 });
             }
 
@@ -59,6 +60,7 @@ namespace Passion_Project.Services
                 last_name = user.last_name,
                 email = user.email,
                 friend_list= user.friend_list,
+                password=user.password
 
 
             };
@@ -96,6 +98,7 @@ namespace Passion_Project.Services
             user.last_name = userdto.last_name;
             user.email = userdto.email;
             user.friend_list = userdto.friend_list;
+            user.password = userdto.password;
 
             try
             {
@@ -121,7 +124,8 @@ namespace Passion_Project.Services
             // Check for empty required fields
             if (string.IsNullOrWhiteSpace(userdto.first_name) ||
                 string.IsNullOrWhiteSpace(userdto.last_name) ||
-                string.IsNullOrWhiteSpace(userdto.email))
+                string.IsNullOrWhiteSpace(userdto.email) ||
+                string.IsNullOrWhiteSpace(userdto.password))
             {
                 serviceResponse.Status = ServiceResponse.ServiceStatus.Error;
                 serviceResponse.Messages.Add("Please provide valid first name, last name, and email.");
@@ -134,7 +138,8 @@ namespace Passion_Project.Services
                 first_name = userdto.first_name,
                 last_name = userdto.last_name,
                 email = userdto.email,
-                friend_list = userdto.friend_list
+                friend_list = userdto.friend_list,
+                password = userdto.password
             };
             // Inserting into user 
 

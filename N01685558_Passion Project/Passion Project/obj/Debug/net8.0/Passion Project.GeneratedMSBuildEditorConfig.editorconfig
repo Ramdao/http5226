@@ -17,9 +17,31 @@ build_property.SupportLocalizedComponentNames =
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = C:\Users\radin\OneDrive\Desktop\uni\sem2\http5226\http5226\N01685558_Passion Project\Passion Project
 build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
 
 [C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/EntryPage/ConfirmDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlQYWdlXENvbmZpcm1EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/EntryPage/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlQYWdlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/EntryPage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlQYWdlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/EntryPage/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlQYWdlXExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/EntryPage/New.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlQYWdlXE5ldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/Home/Index.cshtml]
@@ -40,6 +62,46 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/TimelinePage/ConfirmDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGltZWxpbmVQYWdlXENvbmZpcm1EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/TimelinePage/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGltZWxpbmVQYWdlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/TimelinePage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGltZWxpbmVQYWdlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/TimelinePage/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGltZWxpbmVQYWdlXExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/TimelinePage/New.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGltZWxpbmVQYWdlXE5ldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/UserPage/ConfirmDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VcQ29uZmlybURlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/UserPage/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/UserPage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/UserPage/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VcTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/UserPage/New.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclBhZ2VcTmV3LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/_ViewImports.cshtml]

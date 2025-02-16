@@ -465,3 +465,7 @@ C:\Users\radin\OneDrive\Desktop\uni\sem2\http5226\http5226\N01685558_Passion Pro
 C:\Users\radin\OneDrive\Desktop\uni\sem2\http5226\http5226\N01685558_Passion Project\Passion Project\obj\Debug\net8.0\Passion Project.pdb
 C:\Users\radin\OneDrive\Desktop\uni\sem2\http5226\http5226\N01685558_Passion Project\Passion Project\obj\Debug\net8.0\Passion Project.genruntimeconfig.cache
 C:\Users\radin\OneDrive\Desktop\uni\sem2\http5226\http5226\N01685558_Passion Project\Passion Project\obj\Debug\net8.0\ref\Passion Project.dll
+C:\Users\radin\OneDrive\Desktop\uni\sem2\http5226\http5226\N01685558_Passion Project\Passion Project\bin\Debug\net8.0\Passion Project.staticwebassets.endpoints.json
+C:\Users\radin\OneDrive\Desktop\uni\sem2\http5226\http5226\N01685558_Passion Project\Passion Project\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\radin\OneDrive\Desktop\uni\sem2\http5226\http5226\N01685558_Passion Project\Passion Project\obj\Debug\net8.0\staticwebassets\msbuild.Passion Project.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\radin\OneDrive\Desktop\uni\sem2\http5226\http5226\N01685558_Passion Project\Passion Project\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

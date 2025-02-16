@@ -11,7 +11,7 @@ namespace Passion_Project.Models
         public string email { get; set; }
         public string friend_list { get; set; }
         
-
+        public string password { get; set; }
        
 
 
@@ -24,5 +24,6 @@ namespace Passion_Project.Models
         public string last_name { get; set; }
         public string email { get; set; }
         public string friend_list { get; set; }
+        public string password { get; set; }
     }
 }
