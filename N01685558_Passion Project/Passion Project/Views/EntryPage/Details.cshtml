@@ -1,9 +1,5 @@
 ﻿@model Passion_Project.Models.EntryDetails
 
-@{
-    ViewData["Title"] = "Entry Details";
-}
-
 <h1>Entry Details</h1>
 
 <div>
@@ -38,28 +34,17 @@
 </div>
 
 <div>
-    <h4>Associated Timeline</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.timeline.timeline_name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.timeline.timeline_name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.timeline.date)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.timeline.date)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.timeline.description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.timeline.description)
-        </dd>
-    </dl>
+    <h4>Associated Timelines</h4>
+    <ul>
+        @foreach (var timeline in Model.Timelines)
+        {
+            <li>
+                <strong>@timeline.timeline_name</strong><br />
+                @timeline.date.ToString("MM/dd/yyyy")<br />
+                @timeline.description
+            </li>
+        }
+    </ul>
 </div>
 
 <div>

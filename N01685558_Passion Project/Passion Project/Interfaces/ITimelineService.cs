@@ -14,5 +14,8 @@ namespace Passion_Project.Interfaces
         Task<ServiceResponse> AddTimeline(TimelineDto timelineDto);
 
         Task<ServiceResponse> DeleteTimeline(int id);
+
+
+        Task<IEnumerable<TimelineDto>> GetTimelinesForEntry(int entryId);
     }
 }

@@ -739,6 +739,39 @@
   },
   "components": {
     "schemas": {
+      "Entries": {
+        "type": "object",
+        "properties": {
+          "entries_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "entries_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "images": {
+            "type": "string",
+            "nullable": true
+          },
+          "timeline_Id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timeline": {
+            "$ref": "#/components/schemas/Timeline"
+          }
+        },
+        "additionalProperties": false
+      },
       "EntriesDto": {
         "type": "object",
         "properties": {
@@ -789,6 +822,13 @@
           },
           "description": {
             "type": "string",
+            "nullable": true
+          },
+          "entries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Entries"
+            },
             "nullable": true
           }
         },

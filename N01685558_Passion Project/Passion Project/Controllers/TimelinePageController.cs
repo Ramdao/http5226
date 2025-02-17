@@ -10,12 +10,14 @@ namespace Passion_Project.Controllers
     {
         private readonly ITimelineService _timelineService;
         private readonly IUserTimeline _userTimelineService;
+        private readonly IEntriesService _entryService;  // Assuming you have an entry service to fetch entries
 
         // Dependency injection of Timeline service interface
-        public TimelinePageController(ITimelineService timelineService, IUserTimeline userTimelineService)
+        public TimelinePageController(ITimelineService timelineService, IUserTimeline userTimelineService, IEntriesService entryService)
         {
             _timelineService = timelineService;
             _userTimelineService = userTimelineService;
+            _entryService = entryService;  // Inject EntryService to get entries
         }
 
         // GET: TimelinePage/List
@@ -29,25 +31,32 @@ namespace Passion_Project.Controllers
         [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
+            // Fetch the timeline by ID
             TimelineDto? timelineDto = await _timelineService.FindTimeline(id);
-            IEnumerable<UserTimelineDto> AssociatedUsers = await _userTimelineService.GetUsersForTimeline(id);
 
+            // Fetch the users associated with this timeline
+            IEnumerable<UserTimelineDto> associatedUsers = await _userTimelineService.GetUsersForTimeline(id);
 
+            // Fetch the entries associated with this timeline
+            IEnumerable<EntriesDto> associatedEntries = await _entryService.GetEntriesForTimeline(id);
 
+            // Check if the timeline exists
             if (timelineDto == null)
             {
-                return View("Error", new ErrorViewModel() { Errors = ["Could not find Timeline"] });
+                return View("Error", new ErrorViewModel() { Errors = ["Could not find timeline"] });
             }
             else
             {
-                TimelineDetails TimelineInfo = new TimelineDetails()
+                // Prepare the TimelineDetails view model
+                TimelineDetails timelineInfo = new TimelineDetails()
                 {
                     Timeline = timelineDto,
-                    UserTimeline = AssociatedUsers
+                    UserTimeline = associatedUsers,
+                    Entries = associatedEntries 
                 };
-                return View(TimelineInfo);  // Pass TimelineDetails to the view
+
+                return View(timelineInfo);  // Pass TimelineDetails to the view
             }
-            
         }
 
         // GET: TimelinePage/New

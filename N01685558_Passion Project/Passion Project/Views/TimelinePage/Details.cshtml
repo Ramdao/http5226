@@ -31,10 +31,10 @@
             @Html.DisplayFor(model => model.Timeline.description)
         </dd>
     </dl>
+</div>
 
-    
-
-    <!-- Display associated users here -->
+<!-- Display associated users here -->
+<div>
     <h4>Associated Users</h4>
     <hr />
     @if (Model.UserTimeline != null && Model.UserTimeline.Any())
@@ -49,6 +49,30 @@
     else
     {
         <p>No associated users.</p>
+    }
+</div>
+
+<!-- Display associated entries here -->
+<div>
+    <h4>Associated Entries</h4>
+    <hr />
+    @if (Model.Entries != null && Model.Entries.Any())
+    {
+        <ul>
+            @foreach (var entry in Model.Entries)
+            {
+                <li>
+                    <strong>@entry.entries_name</strong><br />
+                    @entry.description<br />
+                    @entry.location<br />
+                    @entry.images
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No associated entries.</p>
     }
 </div>
 

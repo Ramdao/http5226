@@ -7,7 +7,7 @@ namespace Passion_Project.Models
 
         public required TimelineDto Timeline { get; set; }
 
-        //public required EntriesDto Entry { get; set; }
+        public IEnumerable<EntriesDto> Entries { get; set; }
 
         public IEnumerable<UserTimelineDto>? UserTimeline { get; set; }
 

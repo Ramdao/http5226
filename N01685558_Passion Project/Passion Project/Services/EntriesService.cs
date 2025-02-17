@@ -6,6 +6,7 @@ using Passion_Project.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq; // Add this import to use LINQ methods like `Include` and `Where`
 
 namespace Passion_Project.Services
 {
@@ -20,29 +21,38 @@ namespace Passion_Project.Services
 
         public async Task<IEnumerable<EntriesDto>> List()
         {
-            List<Entries> entries = await _context.entries.ToListAsync();
-            List<EntriesDto> EntriesDtos = new List<EntriesDto>();
+            // Include the Timeline data when querying entries
+            var entries = await _context.entries
+                .Include(e => e.Timeline) // Make sure to include the associated Timeline
+                .ToListAsync();
 
-            // Find and lists all entries
-            foreach (Entries entry in entries)
+            var entriesDtos = entries.Select(e => new EntriesDto()
             {
-                EntriesDtos.Add(new EntriesDto()
+                entries_Id = e.entries_Id,
+                entries_name = e.entries_name,
+                description = e.description,
+                location = e.location,
+                images = e.images,
+                timeline_Id = e.timeline_Id,
+                Timeline = new TimelineDto()
                 {
-                    entries_Id = entry.entries_Id,
-                    entries_name = entry.entries_name,
-                    description = entry.description,
-                    location = entry.location,
-                    images = entry.images,
-                    timeline_Id = entry.timeline_Id,
-                });
-            }
-            return EntriesDtos;
+                    timeline_Id = e.Timeline.timeline_Id,
+                    timeline_name = e.Timeline.timeline_name, // Add timeline_name here
+                    date = e.Timeline.date,
+                    description = e.Timeline.description
+                }
+            }).ToList();
+
+            return entriesDtos;
         }
 
         public async Task<EntriesDto?> FindEntry(int id)
         {
-            // Find entry by {id}
-            var entry = await _context.entries.FirstOrDefaultAsync(e => e.entries_Id == id);
+            // Find entry by {id}, including the associated Timeline data
+            var entry = await _context.entries
+                .Include(e => e.Timeline)
+                .FirstOrDefaultAsync(e => e.entries_Id == id);
+
             if (entry == null)
             {
                 return null;
@@ -56,20 +66,27 @@ namespace Passion_Project.Services
                 location = entry.location,
                 images = entry.images,
                 timeline_Id = entry.timeline_Id,
+                Timeline = new TimelineDto()
+                {
+                    timeline_Id = entry.Timeline.timeline_Id,
+                    timeline_name = entry.Timeline.timeline_name,
+                    date = entry.Timeline.date,
+                    description = entry.Timeline.description
+                }
             };
         }
 
         public async Task<ServiceResponse> UpdateEntry(int id, EntriesDto entryDto)
         {
             ServiceResponse serviceResponse = new();
-            //Checking required fields
+
             if (string.IsNullOrWhiteSpace(entryDto.entries_name) || entryDto.timeline_Id <= 0)
             {
                 serviceResponse.Status = ServiceResponse.ServiceStatus.Error;
                 serviceResponse.Messages.Add("Entry name and a valid timeline ID are required.");
                 return serviceResponse;
             }
-            //Cheking if Id exits
+
             var entry = await _context.entries.FindAsync(id);
             if (entry == null)
             {
@@ -86,7 +103,6 @@ namespace Passion_Project.Services
 
             try
             {
-                //Attempts to update old data based on {id}
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -103,14 +119,14 @@ namespace Passion_Project.Services
         public async Task<ServiceResponse> AddEntry(EntriesDto entryDto)
         {
             ServiceResponse serviceResponse = new();
-            // Validate required fields
+
             if (string.IsNullOrWhiteSpace(entryDto.entries_name) || entryDto.timeline_Id <= 0)
             {
                 serviceResponse.Status = ServiceResponse.ServiceStatus.Error;
                 serviceResponse.Messages.Add("Entry name and a valid timeline ID are required.");
                 return serviceResponse;
             }
-            // Creates new instance of entry
+
             Entries entry = new Entries()
             {
                 entries_name = entryDto.entries_name,
@@ -118,12 +134,10 @@ namespace Passion_Project.Services
                 location = entryDto.location,
                 images = entryDto.images,
                 timeline_Id = entryDto.timeline_Id,
-
             };
 
             try
             {
-                //Attempts to add entry
                 _context.entries.Add(entry);
                 await _context.SaveChangesAsync();
             }
@@ -142,8 +156,8 @@ namespace Passion_Project.Services
         public async Task<ServiceResponse> DeleteEntry(int id)
         {
             ServiceResponse response = new();
-            var entry = await _context.entries.FindAsync(id);
 
+            var entry = await _context.entries.FindAsync(id);
             if (entry == null)
             {
                 response.Status = ServiceResponse.ServiceStatus.NotFound;
@@ -153,7 +167,6 @@ namespace Passion_Project.Services
 
             try
             {
-                //Attempts to delete user
                 _context.entries.Remove(entry);
                 await _context.SaveChangesAsync();
             }
@@ -166,6 +179,39 @@ namespace Passion_Project.Services
 
             response.Status = ServiceResponse.ServiceStatus.Deleted;
             return response;
+        }
+
+        // NEW METHOD: GetEntriesForTimeline
+        public async Task<IEnumerable<EntriesDto>> GetEntriesForTimeline(int timelineId)
+        {
+            var entries = await _context.entries
+                .Include(e => e.Timeline) // Ensure we include Timeline
+                .Where(e => e.timeline_Id == timelineId)
+                .ToListAsync();
+
+            List<EntriesDto> entriesDtos = new List<EntriesDto>();
+
+            foreach (var entry in entries)
+            {
+                entriesDtos.Add(new EntriesDto()
+                {
+                    entries_Id = entry.entries_Id,
+                    entries_name = entry.entries_name,
+                    description = entry.description,
+                    location = entry.location,
+                    images = entry.images,
+                    timeline_Id = entry.timeline_Id,
+                    Timeline = new TimelineDto()
+                    {
+                        timeline_Id = entry.Timeline.timeline_Id,
+                        timeline_name = entry.Timeline.timeline_name,
+                        date = entry.Timeline.date,
+                        description = entry.Timeline.description
+                    }
+                });
+            }
+
+            return entriesDtos;
         }
     }
 }

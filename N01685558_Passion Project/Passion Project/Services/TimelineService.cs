@@ -169,5 +169,24 @@ namespace Passion_Project.Services
             response.Status = ServiceResponse.ServiceStatus.Deleted;
             return response;
         }
+        public async Task<IEnumerable<TimelineDto>> GetTimelinesForEntry(int entryId)
+        {
+            // Fetch all timelines where the entryId matches
+            var timelines = await _context.timelines
+                .Where(t => t.entries.Any(e => e.entries_Id == entryId))  // Filters timelines by entryId
+                .ToListAsync();
+
+            // Convert the Timeline entities to DTOs
+            var timelineDtos = timelines.Select(t => new TimelineDto
+            {
+                timeline_Id = t.timeline_Id,
+                timeline_name = t.timeline_name,
+                date = t.date,
+                description = t.description
+            }).ToList();
+
+            return timelineDtos;
+        }
+
     }
 }

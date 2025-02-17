@@ -16,9 +16,9 @@ namespace Passion_Project.Models
 
         public string description { get; set; }
 
-        
+        public virtual ICollection<Entries> entries { get; set; } = new List<Entries>();
 
-       
+
     }
 
     public class TimelineDto
@@ -31,7 +31,7 @@ namespace Passion_Project.Models
 
         public string description { get; set; }
 
-
+       
 
     }
 }

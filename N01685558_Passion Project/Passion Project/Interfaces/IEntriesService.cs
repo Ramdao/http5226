@@ -1,11 +1,9 @@
 ﻿using Passion_Project.Models;
 
-
 namespace Passion_Project.Interfaces
 {
     public interface IEntriesService
     {
-
         Task<IEnumerable<EntriesDto>> List();
 
         Task<EntriesDto?> FindEntry(int id);
@@ -15,5 +13,7 @@ namespace Passion_Project.Interfaces
         Task<ServiceResponse> AddEntry(EntriesDto entriesDto);
 
         Task<ServiceResponse> DeleteEntry(int id);
+
+        Task<IEnumerable<EntriesDto>> GetEntriesForTimeline(int timelineId);
     }
 }

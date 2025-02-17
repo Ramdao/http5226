@@ -41,10 +41,18 @@ namespace Passion_Project.Controllers
             {
                 return View("Error", new ErrorViewModel() { Errors = new List<string> { "Could not find entry" } });
             }
-            else
+
+            // Fetch timelines related to this entry
+            var timelines = await _timelineService.GetTimelinesForEntry(id);  // Call the new method
+
+            // Create the EntryDetails object to pass to the view
+            var entryDetails = new EntryDetails
             {
-                return View(entriesDto);  // Pass the EntriesDto to the view
-            }
+                Entry = entriesDto,
+                Timelines = timelines
+            };
+
+            return View(entryDetails);  // Pass EntryDetails to the view
         }
 
         // GET: EntryPage/New
