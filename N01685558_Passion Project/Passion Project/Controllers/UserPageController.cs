@@ -1,7 +1,4 @@
-﻿using Azure;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using Passion_Project.Interfaces;
 using Passion_Project.Models;
 using Passion_Project.Services;
@@ -14,15 +11,28 @@ namespace Passion_Project.Controllers
     {
         private readonly IUserService _userService;
         private readonly IUserTimeline _userTimelineService;
-        
+        private readonly IEntriesService _entryService; // Assuming you have an Entry service
 
         // Dependency injection of service interface
-        public UserPageController(IUserService userService, IUserTimeline userTimelineService)
+        public UserPageController(IUserService userService, IUserTimeline userTimelineService, IEntriesService entryService)
         {
             _userService = userService;
             _userTimelineService = userTimelineService;
-           
+            _entryService = entryService;
         }
+
+        // GET: UserPage/UserLogin
+        public IActionResult UserLogin()
+        {
+            return View();
+        }
+
+        public IActionResult New()
+        {
+            return View();
+        }
+
+      
 
         public IActionResult Index()
         {
@@ -59,20 +69,14 @@ namespace Passion_Project.Controllers
         }
 
         // GET: UserPage/New
-        public IActionResult New()
-        {
-            return View();
-        }
+       
 
         public IActionResult UserRegister()
         {
             return View();
         }
 
-        public IActionResult UserLogin()
-        {
-            return View();
-        }
+       
 
         public IActionResult Error()
         {
@@ -87,9 +91,9 @@ namespace Passion_Project.Controllers
 
 
         [HttpPost]
-       
 
-       
+
+
 
 
         // POST: UserPage/Add
@@ -170,22 +174,67 @@ namespace Passion_Project.Controllers
             }
         }
 
+      
+
+
+
+        // POST: UserPage/Login
+        [HttpPost]
         public async Task<IActionResult> Login(string email, string password)
         {
             var result = await _userService.ValidateUser(email, password);
 
             if (result.Status == ServiceResponse.ServiceStatus.Success)
             {
-               
-                return RedirectToAction("Details", "UserPage");
+                // Save user email in session after successful login
+                HttpContext.Session.SetString("UserEmail", email);
+
+                // Redirect to User Dashboard
+                return RedirectToAction("Dashboard", "UserPage");
             }
             else
             {
-                
                 ViewData["ErrorMessage"] = "Invalid email or password.";
-                return RedirectToAction("Error", "UserPage");
+                return View("UserLogin"); // Stay on the login page and show error
             }
         }
+
+        // GET: UserPage/Dashboard
+        public async Task<IActionResult> Dashboard()
+        {
+            string userEmail = HttpContext.Session.GetString("UserEmail");
+
+            if (userEmail == null)
+            {
+                return RedirectToAction("UserLogin", "UserPage"); // Redirect to login if no session exists
+            }
+
+            // Retrieve user information based on session email
+            var userResponse = await _userService.GetUserByEmail(userEmail); // Fetch user by email
+
+            if (userResponse.Status == ServiceResponse.ServiceStatus.Error)
+            {
+                return RedirectToAction("UserLogin", "UserPage"); // If user not found, redirect to login page
+            }
+
+            var user = userResponse.Data; // Extract the UserDto from the response
+
+            // Retrieve user's timelines and entries for dashboard overview
+            IEnumerable<UserTimelineDto> associatedTimelines = await _userTimelineService.GetTimelinesForUser(user.user_Id);
+            IEnumerable<EntriesDto> recentEntries = await _entryService.GetRecentEntries(user.user_Id); // Now calls GetRecentEntries
+
+            // Create a dashboard view model to pass to the view
+            var dashboardInfo = new DashboardViewModel
+            {
+                User = user,
+                UserTimelines = associatedTimelines,
+                RecentEntries = recentEntries
+            };
+
+            return View(dashboardInfo);
+        }
+
+        // Other actions (Add, Edit, Delete Entries, etc.) remain the same
 
     }
 }

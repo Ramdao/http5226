@@ -15,5 +15,7 @@ namespace Passion_Project.Interfaces
         Task<ServiceResponse> DeleteEntry(int id);
 
         Task<IEnumerable<EntriesDto>> GetEntriesForTimeline(int timelineId);
+
+        Task<IEnumerable<EntriesDto>> GetRecentEntries(int userId);
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Passion_Project.Data;
 using Passion_Project.Interfaces;
 using Passion_Project.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -13,6 +14,16 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+// Add session services
+builder.Services.AddDistributedMemoryCache();  // Required for session
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);  // Set session timeout duration
+    options.Cookie.HttpOnly = true;  // Ensure the cookie is only accessible through HTTP
+    options.Cookie.IsEssential = true;  // Mark session cookie as essential
+});
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddSwaggerGen();
 
@@ -31,7 +42,6 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -40,9 +50,16 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Add session middleware before authorization and other middlewares
+app.UseSession();
+
 app.UseAuthorization();
+
+// Swagger for API documentation
 app.UseSwagger();
 app.UseSwaggerUI();
+
+// Default route configuration
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

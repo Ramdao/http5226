@@ -233,6 +233,33 @@ namespace Passion_Project.Services
             return serviceResponse;
         }
 
+        public async Task<ServiceResponse<UserDto>> GetUserByEmail(string email)
+        {
+            ServiceResponse<UserDto> serviceResponse = new();
+
+            var user = await _context.users.FirstOrDefaultAsync(u => u.email == email);
+
+            if (user == null)
+            {
+                serviceResponse.Status = ServiceResponse.ServiceStatus.Error;
+                serviceResponse.Messages.Add("User not found.");
+            }
+            else
+            {
+                serviceResponse.Data = new UserDto
+                {
+                    user_Id = user.user_Id,
+                    first_name = user.first_name,
+                    last_name = user.last_name,
+                    email = user.email,
+                    friend_list = user.friend_list,
+                    password = user.password
+                };
+                serviceResponse.Status = ServiceResponse.ServiceStatus.Success;
+            }
+
+            return serviceResponse;
+        }
 
     }
 }

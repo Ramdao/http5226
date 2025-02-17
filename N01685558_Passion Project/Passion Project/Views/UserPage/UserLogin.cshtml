@@ -24,3 +24,10 @@
         @ViewData["ErrorMessage"]
     </div>
 }
+
+@if (ViewData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success mt-3">
+        @ViewData["SuccessMessage"]
+    </div>
+}

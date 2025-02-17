@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Passion_Project.Models.EntriesDto>
+
+<h2>Timeline Entries</h2>
+
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var entry in Model)
+        {
+            <li>
+                <strong>@entry.entries_name</strong> - @entry.description
+                <form asp-action="DeleteEntry" method="post" asp-route-id="@entry.entries_Id">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+                <!-- Add edit functionality or link to update view here -->
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No entries in this timeline yet.</p>
+}
+
+<!-- Form to add a new entry -->
+<form asp-action="AddEntry" method="post">
+    <div class="form-group">
+        <label for="entryName">Entry Name</label>
+        <input type="text" id="entryName" name="entry_name" required />
+    </div>
+    <button type="submit" class="btn btn-success">Add Entry</button>
+</form>

@@ -1,0 +1,31 @@
+﻿@model Passion_Project.Models.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h3>Welcome, @Model.User.first_name @Model.User.last_name</h3>
+    <p>Email: @Model.User.email</p>
+</div>
+
+<h4>Your Timelines:</h4>
+<ul>
+    @foreach (var timeline in Model.UserTimelines)
+    {
+        <li>@timeline.timeline_name</li>
+    }
+</ul>
+
+<h4>Recent Entries:</h4>
+<ul>
+    @foreach (var entry in Model.RecentEntries)
+    {
+        <li>@entry.entries_name</li>
+    }
+</ul>
+
+<a href="@Url.Action("Timeline", "UserPage")">Go to Timelines</a>
+<a href="@Url.Action("AddEntry", "UserPage")">Add New Entry</a>

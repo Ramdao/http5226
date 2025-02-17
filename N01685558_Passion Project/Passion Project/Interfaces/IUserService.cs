@@ -17,6 +17,8 @@ namespace Passion_Project.Interfaces
         Task<ServiceResponse> DeleteUser(int id);
 
         Task<ServiceResponse> ValidateUser(string email, string password);
+
+        Task<ServiceResponse<UserDto>> GetUserByEmail(string email);
     }
 }
 
