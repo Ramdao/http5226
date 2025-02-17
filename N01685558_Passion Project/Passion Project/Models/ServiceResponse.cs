@@ -1,7 +1,4 @@
-﻿// NOTE: this serviceResponse is from class
-
-
-namespace Passion_Project.Models
+﻿namespace Passion_Project.Models
 {
     public class ServiceResponse
     {
@@ -16,6 +13,9 @@ namespace Passion_Project.Models
 
         // Allows for more information, such as logic/validation errors
         public List<string> Messages { get; set; } = new List<string>();
+
+        // Optionally store userId for further use
+        public int UserId { get; set; }
     }
 
     // Generic version to support data responses

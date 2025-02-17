@@ -38,5 +38,6 @@ namespace Passion_Project.Models
 
         public int timeline_Id { get; set; }
 
+        public TimelineDto? Timeline { get; set; }
     }
 }

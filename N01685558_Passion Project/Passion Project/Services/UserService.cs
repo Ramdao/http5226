@@ -4,16 +4,18 @@ using Passion_Project.Interfaces;
 using Passion_Project.Models;
 using Passion_Project.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Passion_Project.Services
 {
     public class UserService : IUserService
     {
         private readonly ApplicationDbContext _context;
-
+        
         public UserService(ApplicationDbContext context)
         {
             _context = context;
+           
         }
 
         public async Task<IEnumerable<UserDto>> List()
@@ -197,10 +199,41 @@ namespace Passion_Project.Services
 
             return response;
 
-
+            
 
 
         }
+
+        public async Task<ServiceResponse> ValidateUser(string email, string password)
+        {
+            ServiceResponse serviceResponse = new();
+
+            // Check if email and password are provided
+            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+            {
+                serviceResponse.Status = ServiceResponse.ServiceStatus.Error;
+                serviceResponse.Messages.Add("Email and password are required.");
+                return serviceResponse;
+            }
+
+            // Find user by email
+            var user = await _context.users.FirstOrDefaultAsync(u => u.email == email);
+
+            // Check if user exists and if password matches
+            if (user == null || user.password != password)
+            {
+                serviceResponse.Status = ServiceResponse.ServiceStatus.Error;
+                serviceResponse.Messages.Add("Invalid email or password.");
+                return serviceResponse;
+            }
+
+            // Success case
+            serviceResponse.Status = ServiceResponse.ServiceStatus.Success;
+            serviceResponse.Messages.Add("Login successful.");
+            return serviceResponse;
+        }
+
+
     }
 }
 

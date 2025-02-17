@@ -32,27 +32,7 @@
         </dd>
     </dl>
 
-    <!-- Display associated entries here -->
-    <h4>Associated Entries</h4>
-    <hr />
-    @* @if (Model.Entries != null && Model.Entries.Any()) *@
-    @* { *@
-    @*     <ul> *@
-    @*         @foreach (var entry in Model.Entries) *@
-    @*         { *@
-    @*             <li> *@
-    @*                 <strong>@entry.entries_name</strong><br /> *@
-    @*                 @entry.description<br /> *@
-    @*                 Location: @entry.location<br /> *@
-    @*                 Images: @entry.images *@
-    @*             </li> *@
-    @*         } *@
-    @*     </ul> *@
-    @* } *@
-    @* else *@
-    @* { *@
-    @*     <p>No associated entries.</p> *@
-    @* } *@
+    
 
     <!-- Display associated users here -->
     <h4>Associated Users</h4>

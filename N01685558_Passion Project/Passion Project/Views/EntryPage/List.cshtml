@@ -48,8 +48,12 @@
                     <a asp-action="Edit" asp-route-id="@item.entries_Id">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.entries_Id">Details</a> |
                     <a asp-action="ConfirmDelete" asp-route-id="@item.entries_Id">Delete</a>
+                   
                 </td>
             </tr>
         }
+        <a asp-controller="UserPage" asp-action="List">Users</a>
+        <br />
+        <a  asp-area="" asp-controller="TimelinePage" asp-action="List">Timeline</a>
     </tbody>
 </table>

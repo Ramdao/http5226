@@ -1,4 +1,5 @@
-﻿using Passion_Project.Models;
+﻿using Microsoft.AspNetCore.Identity;
+using Passion_Project.Models;
 
 namespace Passion_Project.Interfaces
 
@@ -14,5 +15,8 @@ namespace Passion_Project.Interfaces
         Task<ServiceResponse> AddUser(UserDto userDto);
 
         Task<ServiceResponse> DeleteUser(int id);
+
+        Task<ServiceResponse> ValidateUser(string email, string password);
     }
 }
+

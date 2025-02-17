@@ -1,7 +1,10 @@
 ﻿using Azure;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Passion_Project.Interfaces;
 using Passion_Project.Models;
+using Passion_Project.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,12 +14,14 @@ namespace Passion_Project.Controllers
     {
         private readonly IUserService _userService;
         private readonly IUserTimeline _userTimelineService;
+        
 
         // Dependency injection of service interface
         public UserPageController(IUserService userService, IUserTimeline userTimelineService)
         {
             _userService = userService;
             _userTimelineService = userTimelineService;
+           
         }
 
         public IActionResult Index()
@@ -58,6 +63,34 @@ namespace Passion_Project.Controllers
         {
             return View();
         }
+
+        public IActionResult UserRegister()
+        {
+            return View();
+        }
+
+        public IActionResult UserLogin()
+        {
+            return View();
+        }
+
+        public IActionResult Error()
+        {
+            return View();
+        }
+
+        public IActionResult Link()
+        {
+            return View();
+        }
+
+
+
+        [HttpPost]
+       
+
+       
+
 
         // POST: UserPage/Add
         [HttpPost]
@@ -136,5 +169,23 @@ namespace Passion_Project.Controllers
                 return View("Error", new ErrorViewModel() { Errors = response.Messages });
             }
         }
+
+        public async Task<IActionResult> Login(string email, string password)
+        {
+            var result = await _userService.ValidateUser(email, password);
+
+            if (result.Status == ServiceResponse.ServiceStatus.Success)
+            {
+               
+                return RedirectToAction("Details", "UserPage");
+            }
+            else
+            {
+                
+                ViewData["ErrorMessage"] = "Invalid email or password.";
+                return RedirectToAction("Error", "UserPage");
+            }
+        }
+
     }
 }

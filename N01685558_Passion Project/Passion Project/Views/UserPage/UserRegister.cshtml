@@ -1,0 +1,75 @@
+﻿@model Passion_Project.Models.UserDto
+
+@{
+    ViewData["Title"] = "New User";
+}
+
+<h1>Register</h1>
+
+<h4>User</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Add" id="registerForm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="first_name" class="control-label">First Name</label>
+                <input asp-for="first_name" class="form-control" />
+                <span asp-validation-for="first_name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="last_name" class="control-label">Last Name</label>
+                <input asp-for="last_name" class="form-control" />
+                <span asp-validation-for="last_name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="email" class="control-label">Email</label>
+                <input asp-for="email" class="form-control" type="email" />
+                <span asp-validation-for="email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="password" class="control-label">Password</label>
+                <input asp-for="password" class="form-control" type="password" id="password" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Retype Password</label>
+                <input class="form-control" type="password" id="confirmPassword" />
+                <span id="passwordMismatch" class="text-danger" style="display: none;">Passwords do not match.</span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#registerForm").submit(function (e) {
+                var password = $("#password").val();
+                var confirmPassword = $("#confirmPassword").val();
+
+                if (password !== confirmPassword) {
+                    e.preventDefault(); // Prevent form submission
+                    $("#passwordMismatch").show();
+                } else {
+                    $("#passwordMismatch").hide();
+
+                    // Redirect after a short delay to simulate a successful form submission
+                    setTimeout(function () {
+                        window.location.href = "/UserPage/UserLogin"; // Adjust the URL if needed
+                    }, 500); // 500ms delay to simulate form processing
+                }
+            });
+        });
+    </script>
+}

@@ -765,6 +765,9 @@
           "timeline_Id": {
             "type": "integer",
             "format": "int32"
+          },
+          "timeline": {
+            "$ref": "#/components/schemas/TimelineDto"
           }
         },
         "additionalProperties": false
