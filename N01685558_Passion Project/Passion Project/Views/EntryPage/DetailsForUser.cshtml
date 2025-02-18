@@ -1,0 +1,53 @@
+﻿@model Passion_Project.Models.EntryDetails
+
+<h1>Entry Details</h1>
+
+<div>
+    <h4>Entry</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Entry.entries_name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Entry.entries_name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Entry.description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Entry.description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Entry.location)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Entry.location)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Entry.images)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Entry.images)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <h4>Associated Timelines</h4>
+    <ul>
+        @foreach (var timeline in Model.Timelines)
+        {
+            <li>
+                <strong>@timeline.timeline_name</strong><br />
+                @timeline.date.ToString("MM/dd/yyyy")<br />
+                @timeline.description
+            </li>
+        }
+    </ul>
+</div>
+
+<div>
+    <a asp-controller="EntryPage" asp-action="EditByUser" asp-route-id="@Model.Entry.entries_Id">Edit</a> |
+    <a asp-controller="UserPage" asp-action="Dashboard">Back to Profile</a>
+</div>
