@@ -72,6 +72,29 @@ namespace Passion_Project.Controllers
             return View(entryDetails);  // Pass EntryDetails to the view
         }
 
+        [HttpGet]
+        public async Task<IActionResult> DetailsForUser(int id)
+        {
+            EntriesDto? entriesDto = await _entriesService.FindEntry(id);
+
+            if (entriesDto == null)
+            {
+                return View("Error", new ErrorViewModel() { Errors = new List<string> { "Could not find entry" } });
+            }
+
+            // Fetch timelines related to this entry
+            var timelines = await _timelineService.GetTimelinesForEntry(id);  // Call the new method
+
+            // Create the EntryDetails object to pass to the view
+            var entryDetails = new EntryDetails
+            {
+                Entry = entriesDto,
+                Timelines = timelines
+            };
+
+            return View(entryDetails);  // Pass EntryDetails to the view
+        }
+
         // GET: EntryPage/New
         public async Task<IActionResult> New()
         {
@@ -136,6 +159,23 @@ namespace Passion_Project.Controllers
             }
         }
 
+        [HttpGet]
+        public async Task<IActionResult> EditByUser(int id)
+        {
+            EntriesDto? entriesDto = await _entriesService.FindEntry(id);
+            if (entriesDto == null)
+            {
+                return View("Error", new ErrorViewModel() { Errors = new List<string> { "Could not find entry" } });
+            }
+            else
+            {
+                // Fetch available timelines for updating entry association
+                var timelines = await _timelineService.List();
+                ViewBag.Timelines = timelines;
+                return View(entriesDto);
+            }
+        }
+
         // POST: EntryPage/Update/{id}
         [HttpPost]
         public async Task<IActionResult> Update(int id, EntriesDto entriesDto)
@@ -145,6 +185,21 @@ namespace Passion_Project.Controllers
             if (response.Status == ServiceResponse.ServiceStatus.Updated)
             {
                 return RedirectToAction("Details", "EntryPage", new { id = id });
+            }
+            else
+            {
+                return View("Error", new ErrorViewModel() { Errors = response.Messages });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateByUser(int id, EntriesDto entriesDto)
+        {
+            ServiceResponse response = await _entriesService.UpdateEntry(id, entriesDto);
+
+            if (response.Status == ServiceResponse.ServiceStatus.Updated)
+            {
+                return RedirectToAction("DashBoard", "UserPage" , new { id = id });
             }
             else
             {
@@ -181,6 +236,10 @@ namespace Passion_Project.Controllers
             {
                 return View("Error", new ErrorViewModel() { Errors = response.Messages });
             }
+        }
+        public IActionResult EditByUser()
+        {
+            return View();
         }
     }
 }

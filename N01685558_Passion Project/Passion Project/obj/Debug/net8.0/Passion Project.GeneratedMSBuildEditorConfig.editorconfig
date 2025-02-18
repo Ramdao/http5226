@@ -36,8 +36,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlQYWdlXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/EntryPage/DetailsForUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlQYWdlXERldGFpbHNGb3JVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/EntryPage/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlQYWdlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/EntryPage/EditByUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cnlQYWdlXEVkaXRCeVVzZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/EntryPage/List.cshtml]
@@ -80,8 +88,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGltZWxpbmVQYWdlXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/TimelinePage/DetailsForUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGltZWxpbmVQYWdlXERldGFpbHNGb3JVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/TimelinePage/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGltZWxpbmVQYWdlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/TimelinePage/EditByUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGltZWxpbmVQYWdlXEVkaXRCeVVzZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/radin/OneDrive/Desktop/uni/sem2/http5226/http5226/N01685558_Passion Project/Passion Project/Views/TimelinePage/List.cshtml]

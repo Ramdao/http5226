@@ -59,6 +59,36 @@ namespace Passion_Project.Controllers
             }
         }
 
+        public async Task<IActionResult> DetailsForUser(int id)
+        {
+            // Fetch the timeline by ID
+            TimelineDto? timelineDto = await _timelineService.FindTimeline(id);
+
+            // Fetch the users associated with this timeline
+            IEnumerable<UserTimelineDto> associatedUsers = await _userTimelineService.GetUsersForTimeline(id);
+
+            // Fetch the entries associated with this timeline
+            IEnumerable<EntriesDto> associatedEntries = await _entryService.GetEntriesForTimeline(id);
+
+            // Check if the timeline exists
+            if (timelineDto == null)
+            {
+                return View("Error", new ErrorViewModel() { Errors = ["Could not find timeline"] });
+            }
+            else
+            {
+                // Prepare the TimelineDetails view model
+                TimelineDetails timelineInfo = new TimelineDetails()
+                {
+                    Timeline = timelineDto,
+                    UserTimeline = associatedUsers,
+                    Entries = associatedEntries
+                };
+
+                return View(timelineInfo);  // Pass TimelineDetails to the view
+            }
+        }
+
         // GET: TimelinePage/New
         public IActionResult New()
         {
@@ -111,9 +141,34 @@ namespace Passion_Project.Controllers
             return View(timelineDto);  // Pass the timelineDto to the view
         }
 
+        [HttpGet]
+        public async Task<IActionResult> EditByUser(int id)
+        {
+            TimelineDto? timelineDto = await _timelineService.FindTimeline(id);
+            if (timelineDto == null)
+            {
+                return View("Error", new ErrorViewModel() { Errors = ["Could not find timeline"] });
+            }
+            return View(timelineDto);  // Pass the timelineDto to the view
+        }
+
         // POST: TimelinePage/Update/{id}
         [HttpPost]
         public async Task<IActionResult> Update(int id, TimelineDto timelineDto)
+        {
+            ServiceResponse response = await _timelineService.UpdateTimeline(id, timelineDto);
+            if (response.Status == ServiceResponse.ServiceStatus.Updated)
+            {
+                return RedirectToAction("Details", "TimelinePage", new { id = id });
+            }
+            else
+            {
+                return View("Error", new ErrorViewModel() { Errors = response.Messages });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateByUser(int id, TimelineDto timelineDto)
         {
             ServiceResponse response = await _timelineService.UpdateTimeline(id, timelineDto);
             if (response.Status == ServiceResponse.ServiceStatus.Updated)
