@@ -222,6 +222,20 @@ namespace Passion_Project.Controllers
             }
         }
 
+        [HttpGet]
+        public async Task<IActionResult> UserConfirmDelete(int id)
+        {
+            EntriesDto? entriesDto = await _entriesService.FindEntry(id);
+            if (entriesDto == null)
+            {
+                return View("Error", new ErrorViewModel() { Errors = new List<string> { "Could not find entry" } });
+            }
+            else
+            {
+                return View(entriesDto);
+            }
+        }
+
         // POST: EntryPage/Delete/{id}
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
@@ -231,6 +245,21 @@ namespace Passion_Project.Controllers
             if (response.Status == ServiceResponse.ServiceStatus.Deleted)
             {
                 return RedirectToAction("List", "EntryPage");
+            }
+            else
+            {
+                return View("Error", new ErrorViewModel() { Errors = response.Messages });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UserDelete(int id)
+        {
+            ServiceResponse response = await _entriesService.DeleteEntry(id);
+
+            if (response.Status == ServiceResponse.ServiceStatus.Deleted)
+            {
+                return RedirectToAction("Dashboard", "UserPage");
             }
             else
             {

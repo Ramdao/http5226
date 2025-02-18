@@ -193,6 +193,16 @@ namespace Passion_Project.Controllers
             return View(timelineDto);  // Pass timelineDto to the view
         }
 
+        public async Task<IActionResult> UserConfirmDelete(int id)
+        {
+            TimelineDto? timelineDto = await _timelineService.FindTimeline(id);
+            if (timelineDto == null)
+            {
+                return View("Error", new ErrorViewModel() { Errors = ["Could not find timeline"] });
+            }
+            return View(timelineDto);  // Pass timelineDto to the view
+        }
+
         // POST: TimelinePage/Delete/{id}
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
@@ -201,6 +211,20 @@ namespace Passion_Project.Controllers
             if (response.Status == ServiceResponse.ServiceStatus.Deleted)
             {
                 return RedirectToAction("List", "TimelinePage");
+            }
+            else
+            {
+                return View("Error", new ErrorViewModel() { Errors = response.Messages });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UserDelete(int id)
+        {
+            ServiceResponse response = await _timelineService.DeleteTimeline(id);
+            if (response.Status == ServiceResponse.ServiceStatus.Deleted)
+            {
+                return RedirectToAction("Dashboard", "UserPage");
             }
             else
             {

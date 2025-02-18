@@ -19,7 +19,7 @@
             @timeline.timeline_name
             | <a asp-controller="TimelinePage" asp-action="EditByUser" asp-route-id="@timeline.timeline_Id">Edit</a>
             | <a asp-controller="TimelinePage" asp-action="DetailsForUser" asp-route-id="@timeline.timeline_Id">Details</a>
-            @* | <a asp-action="DeleteTimeline" asp-route-id="@timeline.timeline_Id" onclick="return confirm('Are you sure you want to delete this timeline?');">Delete</a> *@
+            <a asp-controller="TimelinePage" asp-action="UserConfirmDelete" asp-route-id="@timeline.timeline_Id">Delete</a> 
         </li>
     }
 </ul>
@@ -32,7 +32,7 @@
             @entry.entries_name
             | <a asp-controller="EntryPage" asp-action="EditByUser" asp-route-id="@entry.entries_Id">Edit</a>
             | <a asp-controller="EntryPage" asp-action="DetailsForUser" asp-route-id="@entry.entries_Id">Details</a>
-            @* | <a asp-action="DeleteEntry" asp-route-id="@entry.entries_Id" onclick="return confirm('Are you sure you want to delete this entry?');">Delete</a> *@
+              <a asp-controller="EntryPage" asp-action="UserConfirmDelete" asp-route-id="@entry.entries_Id">Delete</a>
         </li>
     }
 </ul>
