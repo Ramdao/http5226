@@ -3,16 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|c:\\users\\radin\\onedrive\\desktop\\uni\\sem2\\http5226\\http5226\\n01685558_passion project\\passion project\\controllers\\usertimelinepagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\controllers\\usertimelinepagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|c:\\users\\radin\\onedrive\\desktop\\uni\\sem2\\http5226\\http5226\\n01685558_passion project\\passion project\\controllers\\timelinepagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\controllers\\timelinepagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|c:\\users\\radin\\onedrive\\desktop\\uni\\sem2\\http5226\\http5226\\n01685558_passion project\\passion project\\controllers\\userpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\controllers\\userpagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|c:\\users\\radin\\onedrive\\desktop\\uni\\sem2\\http5226\\http5226\\n01685558_passion project\\passion project\\views\\userpage\\new.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\views\\userpage\\new.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|c:\\users\\radin\\onedrive\\desktop\\uni\\sem2\\http5226\\http5226\\n01685558_passion project\\passion project\\views\\usertimelinepage\\userlink.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\views\\usertimelinepage\\userlink.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|c:\\users\\radin\\onedrive\\desktop\\uni\\sem2\\http5226\\http5226\\n01685558_passion project\\passion project\\controllers\\usertimelinepagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\controllers\\usertimelinepagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|c:\\users\\radin\\onedrive\\desktop\\uni\\sem2\\http5226\\http5226\\n01685558_passion project\\passion project\\models\\usertimelineviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\models\\usertimelineviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|c:\\users\\radin\\onedrive\\desktop\\uni\\sem2\\http5226\\http5226\\n01685558_passion project\\passion project\\views\\userpage\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\views\\userpage\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|c:\\users\\radin\\onedrive\\desktop\\uni\\sem2\\http5226\\http5226\\n01685558_passion project\\passion project\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|c:\\users\\radin\\onedrive\\desktop\\uni\\sem2\\http5226\\http5226\\n01685558_passion project\\passion project\\views\\entrypage\\addentry.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\views\\entrypage\\addentry.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|c:\\users\\radin\\onedrive\\desktop\\uni\\sem2\\http5226\\http5226\\n01685558_passion project\\passion project\\controllers\\entrypagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\controllers\\entrypagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|c:\\users\\radin\\onedrive\\desktop\\uni\\sem2\\http5226\\http5226\\n01685558_passion project\\passion project\\views\\timelinepage\\addtimeline.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\views\\timelinepage\\addtimeline.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|c:\\users\\radin\\onedrive\\desktop\\uni\\sem2\\http5226\\http5226\\n01685558_passion project\\passion project\\controllers\\entriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\controllers\\entriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|c:\\users\\radin\\onedrive\\desktop\\uni\\sem2\\http5226\\http5226\\n01685558_passion project\\passion project\\views\\userpage\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\views\\userpage\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|c:\\users\\radin\\onedrive\\desktop\\uni\\sem2\\http5226\\http5226\\n01685558_passion project\\passion project\\views\\userpage\\new.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{52A7FE29-1440-4711-883E-EBE1B919A321}|Passion Project\\Passion Project.csproj|solutionrelative:passion project\\views\\userpage\\new.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +66,150 @@
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserPageController.cs",
+              "DocumentMoniker": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Controllers\\UserPageController.cs",
+              "RelativeDocumentMoniker": "Passion Project\\Controllers\\UserPageController.cs",
+              "ToolTip": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Controllers\\UserPageController.cs",
+              "RelativeToolTip": "Passion Project\\Controllers\\UserPageController.cs",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAowPAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T23:07:29.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserTimelinePageController.cs",
+              "DocumentMoniker": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Controllers\\UserTimelinePageController.cs",
+              "RelativeDocumentMoniker": "Passion Project\\Controllers\\UserTimelinePageController.cs",
+              "ToolTip": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Controllers\\UserTimelinePageController.cs*",
+              "RelativeToolTip": "Passion Project\\Controllers\\UserTimelinePageController.cs*",
+              "ViewState": "AgIAACsAAAAAAAAAAADwvzYAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T22:26:50.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserLink.cshtml",
+              "DocumentMoniker": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Views\\UserTimelinePage\\UserLink.cshtml",
+              "RelativeDocumentMoniker": "Passion Project\\Views\\UserTimelinePage\\UserLink.cshtml",
+              "ToolTip": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Views\\UserTimelinePage\\UserLink.cshtml",
+              "RelativeToolTip": "Passion Project\\Views\\UserTimelinePage\\UserLink.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABsAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-18T04:34:39.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "TimelinePageController.cs",
+              "DocumentMoniker": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Controllers\\TimelinePageController.cs",
+              "RelativeDocumentMoniker": "Passion Project\\Controllers\\TimelinePageController.cs",
+              "ToolTip": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Controllers\\TimelinePageController.cs",
+              "RelativeToolTip": "Passion Project\\Controllers\\TimelinePageController.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAswF0AAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T02:24:41.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserTimelineViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Models\\UserTimelineViewModel.cs",
+              "RelativeDocumentMoniker": "Passion Project\\Models\\UserTimelineViewModel.cs",
+              "ToolTip": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Models\\UserTimelineViewModel.cs",
+              "RelativeToolTip": "Passion Project\\Models\\UserTimelineViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T05:04:55.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Views\\UserPage\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "Passion Project\\Views\\UserPage\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Views\\UserPage\\Dashboard.cshtml",
+              "RelativeToolTip": "Passion Project\\Views\\UserPage\\Dashboard.cshtml",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAqwB8AAAB1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-18T02:20:41.225Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Passion Project\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Passion Project\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAJ4AAAAAAAAAAAAmwK8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T04:22:45.301Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "EntryPageController.cs",
+              "DocumentMoniker": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Controllers\\EntryPageController.cs",
+              "RelativeDocumentMoniker": "Passion Project\\Controllers\\EntryPageController.cs",
+              "ToolTip": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Controllers\\EntryPageController.cs",
+              "RelativeToolTip": "Passion Project\\Controllers\\EntryPageController.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAmwGoAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T02:25:00.994Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AddEntry.cshtml",
+              "DocumentMoniker": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Views\\EntryPage\\AddEntry.cshtml",
+              "RelativeDocumentMoniker": "Passion Project\\Views\\EntryPage\\AddEntry.cshtml",
+              "ToolTip": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Views\\EntryPage\\AddEntry.cshtml",
+              "RelativeToolTip": "Passion Project\\Views\\EntryPage\\AddEntry.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAADoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-18T02:18:25.788Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AddTimeline.cshtml",
+              "DocumentMoniker": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Views\\TimelinePage\\AddTimeline.cshtml",
+              "RelativeDocumentMoniker": "Passion Project\\Views\\TimelinePage\\AddTimeline.cshtml",
+              "ToolTip": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Views\\TimelinePage\\AddTimeline.cshtml",
+              "RelativeToolTip": "Passion Project\\Views\\TimelinePage\\AddTimeline.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAqwDMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-18T02:18:12.363Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "EntriesController.cs",
+              "DocumentMoniker": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Controllers\\EntriesController.cs",
+              "RelativeDocumentMoniker": "Passion Project\\Controllers\\EntriesController.cs",
+              "ToolTip": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Controllers\\EntriesController.cs",
+              "RelativeToolTip": "Passion Project\\Controllers\\EntriesController.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwCAAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T03:11:10.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "New.cshtml",
               "DocumentMoniker": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Views\\UserPage\\New.cshtml",
               "RelativeDocumentMoniker": "Passion Project\\Views\\UserPage\\New.cshtml",
@@ -38,28 +221,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserPageController.cs",
-              "DocumentMoniker": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Controllers\\UserPageController.cs",
-              "RelativeDocumentMoniker": "Passion Project\\Controllers\\UserPageController.cs",
-              "ToolTip": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Controllers\\UserPageController.cs",
-              "RelativeToolTip": "Passion Project\\Controllers\\UserPageController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAALAAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T23:07:29.775Z",
+              "DocumentIndex": 11,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Views\\UserPage\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Passion Project\\Views\\UserPage\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Views\\UserPage\\Edit.cshtml",
+              "RelativeToolTip": "Passion Project\\Views\\UserPage\\Edit.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-18T02:17:23.034Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UserTimelinePageController.cs",
-              "DocumentMoniker": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Controllers\\UserTimelinePageController.cs",
-              "RelativeDocumentMoniker": "Passion Project\\Controllers\\UserTimelinePageController.cs",
-              "ToolTip": "C:\\Users\\radin\\OneDrive\\Desktop\\uni\\sem2\\http5226\\http5226\\N01685558_Passion Project\\Passion Project\\Controllers\\UserTimelinePageController.cs",
-              "RelativeToolTip": "Passion Project\\Controllers\\UserTimelinePageController.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAqwGgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T22:26:50.693Z"
             }
           ]
         }

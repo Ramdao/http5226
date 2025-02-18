@@ -5,6 +5,7 @@
         public IEnumerable<UserDto> Users { get; set; }
         public IEnumerable<TimelineDto> Timelines { get; set; }
         public IEnumerable<UserTimelineDto> UserTimelines { get; set; }
-      
+
+        public int UserId { get; set; }
     }
 }

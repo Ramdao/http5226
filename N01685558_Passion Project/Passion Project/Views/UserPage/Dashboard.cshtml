@@ -27,5 +27,6 @@
     }
 </ul>
 
-<a href="@Url.Action("Timeline", "UserPage")">Go to Timelines</a>
-<a href="@Url.Action("AddEntry", "UserPage")">Add New Entry</a>
+<a asp-controller="EntryPage" asp-action="AddEntry">Add Entry</a>
+<a asp-controller="TimelinePage" asp-action="AddTimeline">Add Timeline</a>
+<a asp-controller="UserTimelinePage" asp-action="UserLink" asp-route-userId="@Model.User.user_Id">Manage Timeline</a>

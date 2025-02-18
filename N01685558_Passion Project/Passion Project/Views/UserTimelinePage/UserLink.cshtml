@@ -1,0 +1,40 @@
+﻿@model Passion_Project.Models.UserTimelineViewModel
+
+@{
+    ViewData["Title"] = "User Timeline Management";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- List of Timelines -->
+<h3>Timelines</h3>
+<a asp-controller="UserPage" asp-action="List">Back to Users</a>
+
+<form method="post" action="@Url.Action("LinkUserToTimelineByUser", "UserTimelinePage")" style="display:inline;">
+    <input type="hidden" name="userId" value="@Model.UserId" />  <!-- Hidden field to pass userId -->
+    <!-- Dropdown to select timeline -->
+    <select name="timelineId" class="form-control" required>
+        <option value="">Select Timeline</option>
+        @foreach (var t in Model.Timelines)
+        {
+            <option value="@t.timeline_Id">@t.timeline_name</option>
+        }
+    </select>
+
+    <button type="submit" class="btn btn-success" style="margin-top: 5px;">Link to Timeline</button>
+</form>
+
+<!-- Unlink Form -->
+<form method="post" action="@Url.Action("UnlinkUserFromTimelineByUser", "UserTimelinePage")" style="display:inline;">
+    <input type="hidden" name="userId" value="@Model.UserId" />  <!-- Hidden field to pass userId -->
+    <!-- Dropdown to select timeline -->
+    <select name="timelineId" class="form-control" required>
+        <option value="">Select Timeline</option>
+        @foreach (var t in Model.Timelines)
+        {
+            <option value="@t.timeline_Id">@t.timeline_name</option>
+        }
+    </select>
+
+    <button type="submit" class="btn btn-danger" style="margin-top: 5px;">Unlink from Timeline</button>
+</form>

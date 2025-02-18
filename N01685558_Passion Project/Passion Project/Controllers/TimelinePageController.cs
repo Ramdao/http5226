@@ -65,6 +65,11 @@ namespace Passion_Project.Controllers
             return View();
         }
 
+        public IActionResult AddTimeline()
+        {
+            return View();
+        }
+
         // POST: TimelinePage/Add
         [HttpPost]
         public async Task<IActionResult> Add(TimelineDto timelineDto)
@@ -73,6 +78,20 @@ namespace Passion_Project.Controllers
             if (response.Status == ServiceResponse.ServiceStatus.Created)
             {
                 return RedirectToAction("Details", "TimelinePage", new { id = response.CreatedId });
+            }
+            else
+            {
+                return View("Error", new ErrorViewModel() { Errors = response.Messages });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddFromUser(TimelineDto timelineDto)
+        {
+            ServiceResponse response = await _timelineService.AddTimeline(timelineDto);
+            if (response.Status == ServiceResponse.ServiceStatus.Created)
+            {
+                return RedirectToAction("Dashboard", "UserPage", new { id = response.CreatedId });
             }
             else
             {

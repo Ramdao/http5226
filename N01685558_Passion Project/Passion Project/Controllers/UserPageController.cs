@@ -11,7 +11,7 @@ namespace Passion_Project.Controllers
     {
         private readonly IUserService _userService;
         private readonly IUserTimeline _userTimelineService;
-        private readonly IEntriesService _entryService; // Assuming you have an Entry service
+        private readonly IEntriesService _entryService; 
 
         // Dependency injection of service interface
         public UserPageController(IUserService userService, IUserTimeline userTimelineService, IEntriesService entryService)
@@ -88,9 +88,13 @@ namespace Passion_Project.Controllers
             return View();
         }
 
+       
+
+      
 
 
-        [HttpPost]
+
+
 
 
 
@@ -234,7 +238,7 @@ namespace Passion_Project.Controllers
             return View(dashboardInfo);
         }
 
-        // Other actions (Add, Edit, Delete Entries, etc.) remain the same
+        
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Passion_Project.Data;
 using Passion_Project.Interfaces;
@@ -47,12 +48,26 @@ namespace Passion_Project.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public async Task<IActionResult> LinkUserToTimelineByUser(int userId, int timelineId)
+        {
+            await _userTimelineService.LinkUserToTimeline(userId, timelineId);
+            return RedirectToAction("Dashboard", "UserPage");
+        }
+
         // POST: UserTimelinePage/UnlinkUserFromTimeline
         [HttpPost]
         public async Task<IActionResult> UnlinkUserFromTimeline(int userId, int timelineId)
         {
             await _userTimelineService.UnlinkUserFromTimeline(userId, timelineId);
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UnlinkUserFromTimelineByUser(int userId, int timelineId)
+        {
+            await _userTimelineService.UnlinkUserFromTimeline(userId, timelineId);
+            return RedirectToAction("Dashboard", "UserPage");
         }
 
         // GET: UserTimelinePage/Details/{id}
@@ -95,10 +110,19 @@ namespace Passion_Project.Controllers
             return PartialView("_RecentEntries", entryDtos);  // Assuming you have a partial view "_RecentEntries.cshtml"
         }
 
-        // GET: UserTimelinePage/Assign
-        public IActionResult Assign()
+
+
+        public async Task<IActionResult> UserLink(int userId)
         {
-            return View();
+            var timelines = await _timelineService.List();
+
+            var viewModel = new UserTimelineViewModel
+            {
+                UserId = userId,  
+                Timelines = timelines
+            };
+
+            return View(viewModel);
         }
     }
 }

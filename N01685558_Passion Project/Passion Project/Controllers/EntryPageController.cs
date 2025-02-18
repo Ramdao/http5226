@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Passion_Project.Interfaces;
 using Passion_Project.Models;
 using System.Collections.Generic;
@@ -22,6 +23,22 @@ namespace Passion_Project.Controllers
         public IActionResult Index()
         {
             return RedirectToAction("List");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> AddEntry()
+        {
+            // Fetch available timelines
+            var timelines = await _timelineService.List() ?? new List<TimelineDto>();
+
+            // Initialize the EntryDetails model with the entry and timelines
+            var model = new EntryDetails
+            {
+                Entry = new EntriesDto(), // Initialize the entry object
+                Timelines = timelines      // Pass the list of timelines
+            };
+
+            return View(model); // Return the model to the view
         }
 
         // GET: EntryPage/List
@@ -79,6 +96,27 @@ namespace Passion_Project.Controllers
                 return View("Error", new ErrorViewModel() { Errors = response.Messages });
             }
         }
+
+
+        [HttpPost]
+        public async Task<IActionResult> AddFromUser(EntryDetails entryDetails)
+        {
+            // Extract the entry DTO from the model
+            var entriesDto = entryDetails.Entry;
+
+            // Add the entry to the database or service
+            ServiceResponse response = await _entriesService.AddEntry(entriesDto);
+
+            if (response.Status == ServiceResponse.ServiceStatus.Created)
+            {
+                return RedirectToAction("Dashboard", "UserPage", new { id = response.CreatedId });
+            }
+            else
+            {
+                return View("Error", new ErrorViewModel() { Errors = response.Messages });
+            }
+        }
+
 
         // GET: EntryPage/Edit/{id}
         [HttpGet]
