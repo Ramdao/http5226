@@ -10,11 +10,12 @@
 <h3>Timelines</h3>
 <a asp-controller="UserPage" asp-action="List">Back to Users</a>
 
+<!-- Link User to Timeline Form -->
 <form method="post" action="@Url.Action("LinkUserToTimelineByUser", "UserTimelinePage")" style="display:inline;">
-    <input type="hidden" name="userId" value="@Model.UserId" />  <!-- Hidden field to pass userId -->
-    <!-- Dropdown to select timeline -->
-    <select name="timelineId" class="form-control" required>
-        <option value="">Select Timeline</option>
+    <input type="hidden" name="userId" value="@Model.UserId" /> <!-- Hidden field to pass userId -->
+    <!-- Searchable Dropdown for Linking -->
+    <select name="timelineId" class="form-control searchable-dropdown" required>
+        <option value="">Search & Select a Timeline</option>
         @foreach (var t in Model.Timelines)
         {
             <option value="@t.timeline_Id">@t.timeline_name</option>
@@ -24,12 +25,12 @@
     <button type="submit" class="btn btn-success" style="margin-top: 5px;">Link to Timeline</button>
 </form>
 
-<!-- Unlink Form -->
+<!-- Unlink User from Timeline Form -->
 <form method="post" action="@Url.Action("UnlinkUserFromTimelineByUser", "UserTimelinePage")" style="display:inline;">
-    <input type="hidden" name="userId" value="@Model.UserId" />  <!-- Hidden field to pass userId -->
-    <!-- Dropdown to select timeline -->
-    <select name="timelineId" class="form-control" required>
-        <option value="">Select Timeline</option>
+    <input type="hidden" name="userId" value="@Model.UserId" /> <!-- Hidden field to pass userId -->
+    <!-- Searchable Dropdown for Unlinking -->
+    <select name="timelineId" class="form-control searchable-dropdown" required>
+        <option value="">Search & Select a Timeline</option>
         @foreach (var t in Model.Timelines)
         {
             <option value="@t.timeline_Id">@t.timeline_name</option>
@@ -38,3 +39,19 @@
 
     <button type="submit" class="btn btn-danger" style="margin-top: 5px;">Unlink from Timeline</button>
 </form>
+
+@section Scripts {
+    <!-- Include jQuery & Select2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+
+    <script>
+        $(document).ready(function () {
+            $('.searchable-dropdown').select2({
+                placeholder: "Search for a timeline...",
+                allowClear: true
+            });
+        });
+    </script>
+}
