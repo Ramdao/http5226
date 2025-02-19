@@ -80,6 +80,10 @@
     .timeline-content {
         color: #dcdcdc;
     }
+
+    img{
+        width:700px;
+    }
 </style>
 
 <div class="timeline-details-container">
@@ -149,8 +153,8 @@
     <p><strong>Description:</strong> @entry.description</p><br />
     
     <p><strong>Location:</strong> @entry.location</p><br />
-    
-    <p><strong>Image:</strong> @entry.images</p>
+
+                        <img src="@entry.images" alt="Image" />
 </li>
                 }
             </ul>
