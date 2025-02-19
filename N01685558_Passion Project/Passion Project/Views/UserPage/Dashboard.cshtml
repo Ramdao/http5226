@@ -4,39 +4,141 @@
     ViewData["Title"] = "Dashboard";
 }
 
-<h2>@ViewData["Title"]</h2>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+    }
 
-<div>
-    <h3>Welcome, @Model.User.first_name @Model.User.last_name</h3>
-    <p>Email: @Model.User.email</p>
-</div>
+    .dashboard-container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px;
+    }
 
-<h4>Your Timelines:</h4>
-<ul>
+    .dashboard-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .card {
+        background: rgba(25, 25, 25, 0.9);
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+        }
+
+    .timeline-name {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: floralwhite;
+    }
+
+    .entry-list {
+        list-style: none;
+        padding: 0;
+    }
+
+        .entry-list li {
+            background: rgba(50, 50, 50, 0.8);
+            margin: 8px 0;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            .entry-list li:hover {
+                background: rgba(80, 80, 80, 0.8);
+                transform: scale(1.02);
+            }
+
+    .entry-actions {
+        display: flex;
+        justify-content: space-between;
+        width: 30%;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 8px 12px;
+        border-radius: 6px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #ff416c, #ff4b2b);
+        color: white;
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #ff4b2b, #ff416c);
+            box-shadow: 0 0 10px rgba(255, 75, 43, 0.8);
+        }
+
+    .btn-secondary {
+        background: rgba(80, 80, 80, 0.8);
+        color: white;
+    }
+
+        .btn-secondary:hover {
+            background: rgba(110, 110, 110, 0.9);
+        }
+
+</style>
+
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <h2>@ViewData["Title"]</h2>
+        <h3>Welcome, @Model.User.first_name @Model.User.last_name</h3>
+        <p>Email: @Model.User.email</p>
+        <a class="btn btn-primary" asp-controller="TimelinePage" asp-action="AddTimeline">Add Timeline</a>
+        <a class="btn btn-primary" asp-controller="UserTimelinePage" asp-action="UserLink" asp-route-userId="@Model.User.user_Id">Manage Timelines</a>
+    </div>
+
     @foreach (var timeline in Model.UserTimelines)
     {
-        <li>
-            @timeline.timeline_name
-            | <a asp-controller="TimelinePage" asp-action="EditByUser" asp-route-id="@timeline.timeline_Id">Edit</a>
-            | <a asp-controller="TimelinePage" asp-action="DetailsForUser" asp-route-id="@timeline.timeline_Id">Details</a>
-            <a asp-controller="TimelinePage" asp-action="UserConfirmDelete" asp-route-id="@timeline.timeline_Id">Delete</a> 
-        </li>
-    }
-</ul>
+        <div class="card">
+            <div class="timeline-name">@timeline.timeline_name</div>
 
-<h4>Recent Entries:</h4>
-<ul>
-    @foreach (var entry in Model.RecentEntries)
-    {
-        <li>
-            @entry.entries_name
-            | <a asp-controller="EntryPage" asp-action="EditByUser" asp-route-id="@entry.entries_Id">Edit</a>
-            | <a asp-controller="EntryPage" asp-action="DetailsForUser" asp-route-id="@entry.entries_Id">Details</a>
-              <a asp-controller="EntryPage" asp-action="UserConfirmDelete" asp-route-id="@entry.entries_Id">Delete</a>
-        </li>
-    }
-</ul>
+            <p class="entry-actions">
+              
+                <a class="btn btn-secondary" asp-controller="TimelinePage" asp-action="EditByUser" asp-route-id="@timeline.timeline_Id">Edit</a>
+                <a class="btn btn-secondary" asp-controller="TimelinePage" asp-action="DetailsForUser" asp-route-id="@timeline.timeline_Id">Details</a>
+                <a class="btn btn-secondary" asp-controller="TimelinePage" asp-action="UserConfirmDelete" asp-route-id="@timeline.timeline_Id">Delete</a>
+            </p>
 
-<a asp-controller="EntryPage" asp-action="AddEntry">Add Entry</a>
-<a asp-controller="TimelinePage" asp-action="AddTimeline">Add Timeline</a>
-<a asp-controller="UserTimelinePage" asp-action="UserLink" asp-route-userId="@Model.User.user_Id">Manage Timeline</a>
+            <h6>Entries:</h6>
+            <ul class="entry-list">
+                @foreach (var entry in Model.RecentEntries.Where(e => e.timeline_Id == timeline.timeline_Id))
+                {
+                    <li>
+                        @entry.entries_name
+                        <div class="entry-actions">
+                           
+                            <a class="btn btn-secondary" asp-controller="EntryPage" asp-action="EditByUser" asp-route-id="@entry.entries_Id">Edit</a>
+                            <a class="btn btn-secondary" asp-controller="EntryPage" asp-action="DetailsForUser" asp-route-id="@entry.entries_Id">Details</a>
+                            <a class="btn btn-secondary" asp-controller="EntryPage" asp-action="UserConfirmDelete" asp-route-id="@entry.entries_Id">Delete</a>
+                        </div>
+                    </li>
+                }
+            </ul>
+
+            <a class="btn btn-primary" asp-controller="EntryPage" asp-action="AddEntry" asp-route-timelineId="@timeline.timeline_Id">Add Entry</a>
+        </div>
+    }
+</div>

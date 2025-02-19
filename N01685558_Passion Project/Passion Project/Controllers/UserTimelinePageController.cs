@@ -107,7 +107,7 @@ namespace Passion_Project.Controllers
             }
 
             // Return as partial view or redirect to a view that displays the entries
-            return PartialView("_RecentEntries", entryDtos);  // Assuming you have a partial view "_RecentEntries.cshtml"
+            return PartialView("_RecentEntries", entryDtos);  
         }
 
 

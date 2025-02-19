@@ -1,53 +1,130 @@
 ﻿@model Passion_Project.Models.EntryDetails
 
-<h1>Entry Details</h1>
+@{
+    ViewData["Title"] = "Entry Details";
+}
 
-<div>
-    <h4>Entry</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Entry.entries_name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Entry.entries_name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Entry.description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Entry.description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Entry.location)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Entry.location)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Entry.images)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Entry.images)
-        </dd>
-    </dl>
-</div>
+<style>
+    body {
+        background-color: #121212;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+    }
 
-<div>
-    <h4>Associated Timelines</h4>
-    <ul>
-        @foreach (var timeline in Model.Timelines)
-        {
-            <li>
-                <strong>@timeline.timeline_name</strong><br />
-                @timeline.date.ToString("MM/dd/yyyy")<br />
-                @timeline.description
-            </li>
+    .entry-details-container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px;
+    }
+
+    .entry-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .card {
+        background: rgba(25, 25, 25, 0.9);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
         }
-    </ul>
-</div>
 
-<div>
-    <a asp-controller="EntryPage" asp-action="EditByUser" asp-route-id="@Model.Entry.entries_Id">Edit</a> |
-    <a asp-controller="UserPage" asp-action="Dashboard">Back to Profile</a>
+    .form-group label {
+        color: floralwhite;
+        font-weight: bold;
+    }
+
+    .back-link {
+        margin-top: 20px;
+        display: block;
+        text-align: center;
+        color: #ff416c;
+        font-weight: bold;
+    }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+    .entry-list li {
+        background: #1e1e1e;
+        padding: 10px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .entry-list li:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+    .entry-list strong {
+        color: #ff416c;
+    }
+</style>
+
+<div class="entry-details-container">
+    <div class="entry-header">
+        <h1>@ViewData["Title"]</h1>
+        <h3>Entry Information</h3>
+    </div>
+
+    <div class="card">
+        <h4>Entry</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Entry.entries_name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Entry.entries_name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Entry.description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Entry.description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Entry.location)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Entry.location)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Entry.images)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Entry.images)
+            </dd>
+        </dl>
+    </div>
+
+    <div class="card">
+        <h4>Associated Timelines</h4>
+        <ul class="entry-list">
+            @foreach (var timeline in Model.Timelines)
+            {
+                <li>
+                    <strong>@timeline.timeline_name</strong><br />
+                    @timeline.date.ToString("MM/dd/yyyy")<br />
+                    @timeline.description
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div>
+        <a class="back-link" asp-controller="EntryPage" asp-action="EditByUser" asp-route-id="@Model.Entry.entries_Id">Edit</a> 
+        <a class="back-link" asp-controller="UserPage" asp-action="Dashboard">Back to Profile</a>
+    </div>
 </div>

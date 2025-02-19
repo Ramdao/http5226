@@ -10,7 +10,7 @@ namespace Passion_Project.Controllers
     {
         private readonly ITimelineService _timelineService;
         private readonly IUserTimeline _userTimelineService;
-        private readonly IEntriesService _entryService;  // Assuming you have an entry service to fetch entries
+        private readonly IEntriesService _entryService;  
 
         // Dependency injection of Timeline service interface
         public TimelinePageController(ITimelineService timelineService, IUserTimeline userTimelineService, IEntriesService entryService)

@@ -4,41 +4,87 @@
     ViewData["Title"] = "User Timeline Management";
 }
 
+<style>
+    body {
+        background-color: #121212;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+    }
+    .timeline-management-container {
+        margin-top: 30px;
+        background-color: #1e1e1e;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .timeline-form {
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: #2c2c2c;
+        border-radius: 8px;
+    }
+
+    .form-group label {
+        color: white;
+        font-weight: bold;
+    }
+
+    .form-group select {
+        background-color: #333;
+        color: white;
+        border-radius: 8px;
+        border: 1px solid #444;
+    }
+
+    .searchable-dropdown {
+        background-color: #333 !important;
+        color: white !important;
+    }
+</style>
+
 <h1>@ViewData["Title"]</h1>
 
 <!-- List of Timelines -->
 <h3>Timelines</h3>
-<a asp-controller="UserPage" asp-action="List">Back to Users</a>
+<a class="btn btn-secondary" asp-controller="UserPage" asp-action="DashBoard">Back to Profile</a>
 
-<!-- Link User to Timeline Form -->
-<form method="post" action="@Url.Action("LinkUserToTimelineByUser", "UserTimelinePage")" style="display:inline;">
-    <input type="hidden" name="userId" value="@Model.UserId" /> <!-- Hidden field to pass userId -->
-    <!-- Searchable Dropdown for Linking -->
-    <select name="timelineId" class="form-control searchable-dropdown" required>
-        <option value="">Search & Select a Timeline</option>
-        @foreach (var t in Model.Timelines)
-        {
-            <option value="@t.timeline_Id">@t.timeline_name</option>
-        }
-    </select>
+<div class="timeline-management-container">
+    <!-- Link User to Timeline Form -->
+    <form method="post" action="@Url.Action("LinkUserToTimelineByUser", "UserTimelinePage")" class="timeline-form">
+        <input type="hidden" name="userId" value="@Model.UserId" /> <!-- Hidden field to pass userId -->
 
-    <button type="submit" class="btn btn-success" style="margin-top: 5px;">Link to Timeline</button>
-</form>
+        <div class="form-group">
+            <label for="timelineId">Search & Select a Timeline</label>
+            <select name="timelineId" class="form-control searchable-dropdown" required>
+                <option value="">-- Select a Timeline --</option>
+                @foreach (var t in Model.Timelines)
+                {
+                    <option value="@t.timeline_Id">@t.timeline_name</option>
+                }
+            </select>
+        </div>
 
-<!-- Unlink User from Timeline Form -->
-<form method="post" action="@Url.Action("UnlinkUserFromTimelineByUser", "UserTimelinePage")" style="display:inline;">
-    <input type="hidden" name="userId" value="@Model.UserId" /> <!-- Hidden field to pass userId -->
-    <!-- Searchable Dropdown for Unlinking -->
-    <select name="timelineId" class="form-control searchable-dropdown" required>
-        <option value="">Search & Select a Timeline</option>
-        @foreach (var t in Model.Timelines)
-        {
-            <option value="@t.timeline_Id">@t.timeline_name</option>
-        }
-    </select>
+        <button type="submit" class="btn btn-success" style="margin-top: 5px;">Link to Timeline</button>
+    </form>
 
-    <button type="submit" class="btn btn-danger" style="margin-top: 5px;">Unlink from Timeline</button>
-</form>
+    <!-- Unlink User from Timeline Form -->
+    <form method="post" action="@Url.Action("UnlinkUserFromTimelineByUser", "UserTimelinePage")" class="timeline-form">
+        <input type="hidden" name="userId" value="@Model.UserId" /> <!-- Hidden field to pass userId -->
+
+        <div class="form-group">
+            <label for="timelineId">Search & Select a Timeline</label>
+            <select name="timelineId" class="form-control searchable-dropdown" required>
+                <option value="">-- Select a Timeline --</option>
+                @foreach (var t in Model.Timelines)
+                {
+                    <option value="@t.timeline_Id">@t.timeline_name</option>
+                }
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-danger" style="margin-top: 5px;">Unlink from Timeline</button>
+    </form>
+</div>
 
 @section Scripts {
     <!-- Include jQuery & Select2 -->

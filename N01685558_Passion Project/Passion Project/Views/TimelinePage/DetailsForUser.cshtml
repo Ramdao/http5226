@@ -4,79 +4,165 @@
     ViewData["Title"] = "Timeline Details";
 }
 
-<h1>Timeline Details</h1>
-
-<div>
-    <h4>Timeline</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Timeline.timeline_name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Timeline.timeline_name)
-        </dd>
-
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Timeline.date)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Timeline.date)
-        </dd>
-
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Timeline.description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Timeline.description)
-        </dd>
-    </dl>
-</div>
-
-<!-- Display associated users here -->
-<div>
-    <h4>Associated Users</h4>
-    <hr />
-    @if (Model.UserTimeline != null && Model.UserTimeline.Any())
-    {
-        <ul>
-            @foreach (var user in Model.UserTimeline)
-            {
-                <li>@user.first_name @user.last_name</li>
-            }
-        </ul>
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: 'Poppins', sans-serif;
     }
-    else
-    {
-        <p>No associated users.</p>
-    }
-</div>
 
-<!-- Display associated entries here -->
-<div>
-    <h4>Associated Entries</h4>
-    <hr />
-    @if (Model.Entries != null && Model.Entries.Any())
-    {
-        <ul>
-            @foreach (var entry in Model.Entries)
-            {
-                <li>
-                    <strong>@entry.entries_name</strong><br />
-                    @entry.description<br />
-                    @entry.location<br />
-                    @entry.images
-                </li>
-            }
-        </ul>
+    .timeline-details-container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 20px;
     }
-    else
-    {
-        <p>No associated entries.</p>
-    }
-</div>
 
-<div>
-    <a asp-controller="TimelinePage" asp-action="EditByUser" asp-route-id="@Model.Timeline.timeline_Id">Edit</a> |
-    <a asp-controller="UserPage" asp-action="DashBoard">Back to Profile</a>
+    .timeline-details-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .card {
+        background: rgba(25, 25, 25, 0.9);
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+        }
+
+    .form-group label {
+        color: floralwhite;
+        font-weight: bold;
+    }
+
+    .back-link {
+        margin-top: 20px;
+        display: block;
+        text-align: center;
+        color: #ff416c;
+        font-weight: bold;
+    }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+    .list-item {
+        background-color: rgba(50, 50, 50, 0.8);
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 6px;
+    }
+
+        .list-item strong {
+            color: floralwhite;
+        }
+
+        .list-item p {
+            margin-bottom: 0;
+        }
+
+    .timeline-header {
+        margin-bottom: 20px;
+    }
+
+    h4 {
+        color: #ff416c;
+        font-weight: bold;
+    }
+
+    .timeline-content {
+        color: #dcdcdc;
+    }
+</style>
+
+<div class="timeline-details-container">
+    <div class="timeline-details-header">
+        <h1>@ViewData["Title"]</h1>
+        <h3>Timeline Overview</h3>
+    </div>
+
+    <div class="card">
+        <h4>Timeline</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Timeline.timeline_name)
+            </dt>
+            <dd class="col-sm-10 timeline-content">
+                @Html.DisplayFor(model => model.Timeline.timeline_name)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Timeline.date)
+            </dt>
+            <dd class="col-sm-10 timeline-content">
+                @Html.DisplayFor(model => model.Timeline.date)
+            </dd>
+
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Timeline.description)
+            </dt>
+            <dd class="col-sm-10 timeline-content">
+                @Html.DisplayFor(model => model.Timeline.description)
+            </dd>
+        </dl>
+    </div>
+
+    <!-- Associated Users Section -->
+    <div class="card">
+        <h4>Associated Users</h4>
+        <hr />
+        @if (Model.UserTimeline != null && Model.UserTimeline.Any())
+        {
+            <ul>
+                @foreach (var user in Model.UserTimeline)
+                {
+                    <li class="list-item">@user.first_name @user.last_name</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No associated users.</p>
+        }
+    </div>
+
+    <!-- Associated Entries Section -->
+    <div class="card">
+        <h4>Associated Entries</h4>
+        <hr />
+        @if (Model.Entries != null && Model.Entries.Any())
+        {
+            <ul>
+                @foreach (var entry in Model.Entries)
+                {
+                    <li class="list-item">
+    <strong>@entry.entries_name</strong><br />
+    
+    <p><strong>Description:</strong> @entry.description</p><br />
+    
+    <p><strong>Location:</strong> @entry.location</p><br />
+    
+    <p><strong>Image:</strong> @entry.images</p>
+</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No associated entries.</p>
+        }
+    </div>
+
+    <div class="text-center">
+        <a class="btn btn-secondary" asp-controller="TimelinePage" asp-action="EditByUser" asp-route-id="@Model.Timeline.timeline_Id">Edit Timeline</a>
+        <a class="back-link" asp-controller="UserPage" asp-action="DashBoard">Back to Profile</a>
+    </div>
 </div>

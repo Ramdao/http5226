@@ -99,7 +99,7 @@ namespace Passion_Project.Controllers
         public async Task<IActionResult> New()
         {
             // Fetch available timelines to associate with the new entry
-            var timelines = await _timelineService.List(); // Assuming a method to list all timelines
+            var timelines = await _timelineService.List(); 
             ViewBag.Timelines = timelines;
             return View();
         }
