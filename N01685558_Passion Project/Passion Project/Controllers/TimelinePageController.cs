@@ -173,7 +173,7 @@ namespace Passion_Project.Controllers
             ServiceResponse response = await _timelineService.UpdateTimeline(id, timelineDto);
             if (response.Status == ServiceResponse.ServiceStatus.Updated)
             {
-                return RedirectToAction("Details", "TimelinePage", new { id = id });
+                return RedirectToAction("Dashboard", "UserPage", new { id = id });
             }
             else
             {
