@@ -2,7 +2,7 @@
 Time Capsule is a app where you can add timelines, like chapeters in a diary, and entires to that timeline, like content to that chapter. You can add, view, edit and delete timelines and entries. In timelines you can give it a name, description and name. for entries you can give it a name, description, location, images and which timeline it belongs to.
 
 ## Set up
-**[NOTE]** This project was created in Visual studio Using ASP.NET core Web APP (Model-view Controller) using individual accounts template. Swagger was used to test the endpoints.
+> **Note:** This project was created in Visual studio Using ASP.NET core Web APP (Model-view Controller) using individual accounts template. Swagger was used to test the endpoints.
 
 
 ## End points used in this project
